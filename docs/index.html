@@ -159,6 +159,9 @@
             position: relative;
             top: -0.15em;
         }
+        .order_main select:focus{
+            outline: 0
+        }
 
         .order_main .button {
             font-size: inherit;
@@ -295,8 +298,12 @@
         }
 
         .navbar_wrap {
-            background-color: #040;
-            color: #ddd;
+            background-color: #111;
+            color: #ccc;
+        }
+
+        #navbar_title {
+            color: #2a0;
         }
 
         .input {
@@ -340,7 +347,7 @@
     <div id="wrap">
         <div id="header" class="navbar_wrap title">
             <div class="navbar">
-                <p style="font-size: 30px;"><b>Kitten</b>Swap</p>
+                <p style="font-size: 30px;" id="navbar_title"><b>Kitten</b>Swap</p>
                 <!-- <p>
                     <a href="javascript:void(0);" onclick="color_theme_switch()">Dark / Light Mode</a>
                 </p> -->
