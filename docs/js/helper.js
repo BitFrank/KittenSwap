@@ -39,7 +39,7 @@ function startInterval(callback, ms) {
 
 async function init_ethers() {
     const App = {}
-    _print("Connecting MetaMask (please unlock)")
+    _print(`<span style="color:#f00">Connecting MetaMask (please unlock)</span>`)
     // document.getElementById('log').innerHTML = "Connecting MetaMask... "
 
     let isMetaMaskInstalled = true
