@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KittenSwap Kitten.finance (KIF) Kitten Finance KittenFinance $KIF DeFi Token</title>
+    <meta id="viewport" name="viewport" content="width=1500">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        @font-face {
+            font-family: 'Exo 2';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("font/exo2.woff2") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("font/open_sans.woff2") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        #main-wrap,
+        #footer_help {
+            max-width: 75rem;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        button,
+        input,
+        select {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .title {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .panel {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            padding: 1em;
+            line-height: 1.5;
+        }
+
+        .input {
+            background-color: white;
+        }
+
+        .navbar_wrap {
+            background: #492;
+        }
+
+        .button {
+            background-color: #492;
+        }
+
+        .button:hover {
+            background: #0C0;
+        }
+
+        #sidebar {
+            flex: 1;
+            background: #f7f7f7;
+        }
+
+        .mybox {
+            display: inline-block;
+        }
+
+        .mybox>div {
+            display: inline-block;
+            margin-right: 0.5em;
+        }
+
+        .button {
+            height: 34px;
+        }
+
+        .input,
+        .input_wrap {
+            height: 34px;
+        }
+
+        input[type='radio'] {
+            transform: scale(2);
+        }
+
+        input[type='checkbox'] {
+            transform: scale(2);
+        }
+
+        .unselectable {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .right_line {
+            border-right: 1px solid #ddd;
+        }
+
+        .green {
+            color: green !important;
+        }
+
+        .darkred {
+            color: darkred !important;
+        }
+
+        .gray {
+            color: #999 !important;
+        }
+
+        .lightgray {
+            color: #777 !important;
+        }
+
+        .navbar a,
+        .pool_name a {
+            text-decoration: none;
+        }
+
+        .bg_green {
+            background-color: #0a0;
+        }
+
+        .bg_darkred {
+            background-color: #a22;
+        }
+
+        .normal {
+            color: #000 !important;
+        }
+
+        .order_main .title {
+            font-size: 110%;
+        }
+
+        .order_main select {
+            transform: scale(1.3);
+            margin: 1.5em 1em 0em 0.5em;
+            position: relative;
+            top: -0.15em;
+        }
+        .order_main select:focus{
+            outline: 0
+        }
+
+        .order_main .button {
+            font-size: inherit;
+        }
+
+        .order_main .input_wrap {
+            display: inline-block;
+        }
+
+        .order_table td, th {
+            padding: 0.5em 0;
+        }
+
+        .order_table td:nth-child(1), .order_table td:nth-child(2) {
+            color: #888;
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td {
+            border-top: solid 1px #bbb;
+        }
+
+        .order_table tr {
+            cursor: pointer;
+        }
+        tbody tr:hover {
+            background-color: #030;
+        }
+
+        .tr_highlight {
+            background-color: #030;
+        }        
+
+        .table_wrap {
+            border: solid 1px #bbb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .input_hide {
+            display: none;
+        }
+
+        .panel {
+            border: 0px;
+            box-shadow: 0 4px 16px 0 rgba(0,0,0,.08);
+        }
+    </style>
+    <style id="dark_mode_css">
+        select {
+            background-color: #111;
+            color: #ddd;
+            border: 0 !important;
+        }
+
+        .normal {
+            color: #ddd !important;
+        }
+
+        body {
+            background-color: #222;
+            color: #ddd;
+        }
+
+        .gray {
+            color: #888 !important;
+        }
+
+        .lightgray {
+            color: #999 !important;
+        }
+
+        #main {
+            border-right: 1px solid transparent;
+        }
+
+        #help {
+            background-color: #222;
+            color: #ddd;
+        }
+
+        .panel {
+            background-color: #111;
+            color: #ddd;
+            box-shadow: 0 4px 16px 0 rgba(0,0,0,.2);
+        }
+
+        a:link,
+        a:visited {
+            color: #ddd;
+        }
+
+        .all_round_head {
+            color: #aaa;
+        }
+
+        .rounds_level_one {
+            border: 1px solid #333;
+        }
+
+        .right_line {
+            border-right: 1px solid #333;
+        }
+
+        .rounds_level_one span {
+            color: #ddd;
+        }
+
+        #sidebar {
+            /* background-color: #1a1a1a; */
+            background-color: #222;
+            /* color: #ccc; */
+        }
+
+        .emphasize {
+            font-weight: bold;
+            color: white;
+        }
+
+        .button {
+            box-shadow: none;
+            background-color: #040;
+        }
+
+        .button:hover {
+            background: #090;
+        }
+
+        .navbar_wrap {
+            background-color: #111;
+            color: #ccc;
+        }
+
+        #navbar_title {
+            color: #2a0;
+        }
+
+        .input {
+            background: black;
+            box-shadow: none;
+            border: 1px solid #333;
+            color: #ddd;
+        }
+
+        td {
+            border-top: solid 1px #363636;
+        }
+
+        .table_wrap {
+            border: solid 1px #363636;
+        }
+
+        .green {
+            color: #0a0 !important;
+        }
+
+        .darkred {
+            color: #c22 !important;
+        }
+
+        .bg_green {
+            background-color: #070;
+        }
+
+        .bg_darkred {
+            background-color: #700;
+        }
+
+        .line_above {
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header" class="navbar_wrap title">
+            <div class="navbar">
+                <p style="font-size: 30px;" id="navbar_title"><b>Kitten</b>Swap</p>
+                <!-- <p>
+                    <a href="javascript:void(0);" onclick="color_theme_switch()">Dark / Light Mode</a>
+                </p> -->
+                <p><a href="https://kitten-finance.medium.com/" target="_blank">Medium Essays</a></p>
+                <p>a <a href="https://www.kitten.finance" target="_blank" style="text-decoration: underline;">kitten.finance</a> product</p>
+            </div>
+        </div>
+        <br><br>
+        <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em;">KittenSwap Testnet for Limit Orders</div>
+        <br>
+        <div id="main-wrap">
+            <div id="main">
+                <div class="panel" id="everyone_div">
+                    <div class="title" style="font-size: 130%; text-align: center;">Everyone's Orders</div>
+                    <div class="table_wrap" style="margin-top: 1em;">
+                        <table class="order_table" style="width:100%">
+                            <thead>
+                                <tr id="order_table_head">
+                                    <th>id</th>
+                                    <th>maker</th>
+                                    <th>order</th>
+                                    <th>amt</th>
+                                    <th>token</th>
+                                    <th>@ price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>                 
+                </div>
+                <div class="panel order_main order_trade">
+                    <div class="flexbox">
+                        <span class="title">Trade an order</span>
+                        <span class="title lightgray order_log"></span>
+                        <div><button class="button btn_trade input_hide" style="flex: 1;">Trade #<span class="order_id">N/A</span></button></div>
+                    </div>
+                    <div class="input_hide">
+                        <select class="input_op" size="1" disabled>
+                            <option selected>BUY</option>
+                            <option>SELL</option>
+                        </select>
+                        <select class="input_token" size="1" disabled>
+                        </select>
+                        <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
+                        @
+                        <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px" disabled></div><br>
+                    </div>
+                    <div class="gray" style="margin-top:1em">Buy from sell orders. Sell to buy orders. Token amt can be changed.</div>
+                </div>
+                <div><span id="log_now">loading...</span><span class="gray"> @ <span id="log_latency">?</span> s ago</span></div><br>
+            </div>
+            <div style="border-left: 1px solid #444; margin-top: 1em; margin-bottom: 2em;"></div>
+            <div id="sidebar" style="display: flex; flex-direction: column;">
+                <div class="panel" id="user_div">
+                    <div class="title" style="font-size: 130%; text-align: center">Your Orders</div>
+                    <div class="table_wrap" style="margin-top: 1em;">
+                        <table class="order_table" style="width:100%">
+                            <thead>
+                                <tr id="order_table_head">
+                                    <th>id</th>
+                                    <th>maker</th>
+                                    <th>order</th>
+                                    <th>amt</th>
+                                    <th>token</th>
+                                    <th>@ price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel order_main order_create">
+                    <div class="flexbox">
+                        <span class="title">Create an order</span>
+                        <span class="title lightgray order_log">enter amt and price</span>
+                        <div><button class="button btn_create" style="flex:1">Create</button></div>
+                    </div>
+                    <select class="input_op" size="1">
+                        <option selected>BUY</option>
+                        <option>SELL</option>
+                    </select>
+                    <select class="input_token" size="1">
+                    </select>
+                    <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
+                    @
+                    <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px"></div>
+                </div>
+
+                <div class="panel order_main order_modify">
+                    <div class="flexbox">
+                        <span class="title">Modify an order</span>
+                        <span class="title lightgray order_log"></span>
+                        <div><button class="button btn_modify input_hide" style="flex:1;">Modify #<span class="order_id">N/A</span></button></div>
+                    </div>
+                    <div class="input_hide">
+                        <select class="input_op" size="1" disabled>
+                            <option selected>BUY</option>
+                            <option>SELL</option>
+                        </select>
+                        <select class="input_token" size="1" disabled>
+                        </select>
+                        <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
+                        @
+                        <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px"></div>
+                        <div class="gray" style="margin-top:1em">To cancel an order, set token amt to 0.</div>
+                    </div>
+                </div>
+                <div id="log"></div><br>
+            </div>
+        </div>
+        <div id="footer">
+            <br><div style="text-align: center;" class="lightgray">
+                <a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
+                Switch MetaMask to <b>Ropsten testnet</b>. &nbsp;&nbsp;&nbsp;&nbsp; 
+                <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x0a4013b1D9a8d91280e79633Cb64BE8365E00529" target="_blank">Get TestCoin</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
+                <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x07CAC437f097deb59a04A570ec3073e233423135" target="_blank">Get BetCoin</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
+            </div><br>
+            <div style="text-align: center; display: none;">Commission = <span class="fee_percent">?</span> % (only charged on successful trades). <span class="lightgray">&nbsp;&nbsp;&nbsp;Accumulated <span class="fee_total">?</span> ETH (for <a href="https://www.kitten.finance" target="_blank">$KIF</a> buybacks).</span></div>
+            <br>
+            <div class="navbar_wrap">
+                <div class="navbar no_underline bottom_bar">
+                    <a href="https://discord.gg/pMaZswC" target="_blank">Discord</a> <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a>
+                    <a href="https://kitten-finance.medium.com/" target="_blank">Medium</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/ethers-5.0.umd.min.js"></script>
+    <script type="text/javascript" src="js/helper.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+        // var clicky_site_ids = clicky_site_ids || [];
+        // clicky_site_ids.push(101285073);
+    </script>
+    <script async src="//static.getclicky.com/js"></script>
+    <!-- <script type="text/javascript" src="js/lightweight-charts.standalone.production.js"></script> -->
+</body>
+
+</html>
