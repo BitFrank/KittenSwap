@@ -45,8 +45,6 @@ html {
     line-height: 2;
 }
 
-
-
 body {
     font-size: 15px;
 }
@@ -84,130 +82,6 @@ pre {
     flex-wrap: wrap;
 }
 
-.trade_box {
-    width: calc(50% - 0.5em);
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.token_box {
-    width: calc(50% - 0.5em);
-    box-sizing: border-box;
-}
-
-#token_box_3,
-#token_box_103 {
-    margin-top: 1.5em;
-}
-#token_box_203, #token_box_204,
-#token_box_205, #token_box_206 {
-    margin-top: 1em;
-}
-
-@media screen and (max-width: 1699px) {
-    #sidebar {
-        flex: 0 1 34%;
-    }
-}
-
-@media screen and (max-width: 1599px) {
-    #navbar_title {
-        font-size: 32px;
-    }
-
-    #navbar_title img {
-        height: 32px;
-        top: 4px;
-    }
-
-    pre {
-        font-size: 14px;
-    }
-
-    .button {
-        font-size: 14px;
-    }
-
-    body {
-        font-size: 14px;
-    }
-
-    .livecoinwatch-widget-1 {
-        transform: scale(0.8);
-    }
-    #token_box_trade {
-        top: 0.3em !important;
-    }
-    #sidebar {
-        flex: 0 1 35%;
-    }
-}
-
-
-@media screen and (max-width: 1450px) {
-    #navbar_title {
-        font-size: 26px;
-    }
-
-    #navbar_title img {
-        height: 26px;
-        top: 3px;
-    }
-
-    pre {
-        font-size: 13px;
-    }
-
-    .button {
-        font-size: 14px;
-    }
-
-    body {
-        font-size: 13px;
-    }
-
-    .livecoinwatch-widget-1 {
-        transform: scale(0.8);
-    }
-    #token_box_trade {
-        top: 0.3em !important;
-    }
-
-    #sidebar {
-        flex: 0 1 36%;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    #navbar_title {
-        font-size: 20px;
-    }
-
-    #navbar_title img {
-        height: 20px;
-        top: 2px;
-    }
-
-    pre {
-        font-size: 11.5px;
-    }
-
-    .button {
-        font-size: 11.5px;
-    }
-
-    body {
-        font-size: 11.5px;
-    }
-
-    .livecoinwatch-widget-1 {
-        transform: scale(0.8);
-    }
-    #token_box_trade {
-        top: 0.3em !important;
-    }
-}
-
 .navbar_wrap {
     background: #5A0;
     color: white;
@@ -221,10 +95,6 @@ pre {
     align-content: center;
     max-width: 108rem;
     margin: 0 auto;
-}
-
-.navbar a {
-    color: white !important;
 }
 
 .bottom_bar a {
