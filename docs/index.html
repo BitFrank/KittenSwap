@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>KittenSwap Kitten.finance (KIF) Kitten Finance KittenFinance $KIF DeFi Token</title>
-    <meta id="viewport" name="viewport" content="width=1500">
+    <meta id="viewport" name="viewport" content="width=900">
     <link rel="stylesheet" href="index.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -27,9 +27,31 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("font/jetbrains_mono.woff2") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        pre,
+        .monospace {
+            font-family: 'JetBrains Mono', Consolas, Menlo, Courier, monospace;
+        }
+
+        .navbar_wrap {
+            /* background: inherit !important; */
+        }
+
+        .navbar {
+            max-width: 90em;
+        }
+
         #main-wrap,
         #footer_help {
-            max-width: 75rem;
+            max-width: 60em;
         }
 
         body {
@@ -132,11 +154,6 @@
             color: #777 !important;
         }
 
-        .navbar a,
-        .pool_name a {
-            text-decoration: none;
-        }
-
         .bg_green {
             background-color: #0a0;
         }
@@ -147,36 +164,6 @@
 
         .normal {
             color: #000 !important;
-        }
-
-        .order_main .title {
-            font-size: 110%;
-        }
-
-        .order_main select {
-            transform: scale(1.3);
-            margin: 1.5em 1em 0em 0.5em;
-            position: relative;
-            top: -0.15em;
-        }
-        .order_main select:focus{
-            outline: 0
-        }
-
-        .order_main .button {
-            font-size: inherit;
-        }
-
-        .order_main .input_wrap {
-            display: inline-block;
-        }
-
-        .order_table td, th {
-            padding: 0.5em 0;
-        }
-
-        .order_table td:nth-child(1), .order_table td:nth-child(2) {
-            color: #888;
         }
 
         table,
@@ -191,17 +178,6 @@
             border-top: solid 1px #bbb;
         }
 
-        .order_table tr {
-            cursor: pointer;
-        }
-        tbody tr:hover {
-            background-color: #030;
-        }
-
-        .tr_highlight {
-            background-color: #030;
-        }        
-
         .table_wrap {
             border: solid 1px #bbb;
             border-radius: 8px;
@@ -214,7 +190,29 @@
 
         .panel {
             border: 0px;
-            box-shadow: 0 4px 16px 0 rgba(0,0,0,.08);
+            box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .08);
+        }
+
+        #main {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        ul {
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            padding-inline-start: 1.3em;
+        }
+
+        .monospace li {
+            margin: 0.7em 0 0 0;
+        }
+
+        .panel {
+            border-radius: 16px;
         }
     </style>
     <style id="dark_mode_css">
@@ -253,34 +251,13 @@
         .panel {
             background-color: #111;
             color: #ddd;
-            box-shadow: 0 4px 16px 0 rgba(0,0,0,.2);
+            box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .2);
         }
 
+        a,
         a:link,
         a:visited {
-            color: #ddd;
-        }
-
-        .all_round_head {
-            color: #aaa;
-        }
-
-        .rounds_level_one {
-            border: 1px solid #333;
-        }
-
-        .right_line {
-            border-right: 1px solid #333;
-        }
-
-        .rounds_level_one span {
-            color: #ddd;
-        }
-
-        #sidebar {
-            /* background-color: #1a1a1a; */
-            background-color: #222;
-            /* color: #ccc; */
+            color: inherit;
         }
 
         .emphasize {
@@ -302,10 +279,6 @@
             color: #ccc;
         }
 
-        #navbar_title {
-            color: #2a0;
-        }
-
         .input {
             background: black;
             box-shadow: none;
@@ -321,7 +294,8 @@
             border: solid 1px #363636;
         }
 
-        .green {
+        .green,
+        .green a {
             color: #0a0 !important;
         }
 
@@ -341,137 +315,168 @@
             border-top: 1px solid #333;
         }
     </style>
+    <style>
+        .order_main select {
+            position: absolute;
+            right: 0.4em;
+            background: black;
+            top: 0.2em;
+            padding: 0.5em;
+            cursor: pointer;
+            font-size: 150%;
+            text-align-last: right;
+        }
+
+        .token_out_amt,
+        .token_out {
+            background: #111 !important;
+        }
+
+        .order_main option {
+            direction: rtl;
+        }
+
+        .order_main select:focus {
+            outline: 0
+        }
+
+        .order_main input {
+            height: 2em;
+            font-size: 200%;
+            width: 10em;
+            letter-spacing: 0.1em;
+        }
+
+        .btn_trade {
+            height: 3em;
+            font-size: 120%;
+        }
+
+        .btn_trade:disabled {
+            background: #333;
+            color: #999;
+        }
+
+        .btn_trade:disabled:hover {
+            background: #333;
+            color: #999;
+        }
+
+        .btn_token_change {
+            position: relative;
+            top: 3px;
+            padding: 1em 1em 1em 0;
+            display: inline-block;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn_token_change:hover svg {
+            stroke: #0f0;
+        }
+
+        .order_log {
+            margin: 1em 0;
+        }
+
+        .order_info {
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
     <div id="wrap">
         <div id="header" class="navbar_wrap title">
             <div class="navbar">
-                <p style="font-size: 30px;" id="navbar_title"><b>Kitten</b>Swap</p>
-                <!-- <p>
-                    <a href="javascript:void(0);" onclick="color_theme_switch()">Dark / Light Mode</a>
-                </p> -->
-                <p><a href="https://kitten-finance.medium.com/" target="_blank">Medium Essays</a></p>
-                <p>a <a href="https://www.kitten.finance" target="_blank" style="text-decoration: underline;">kitten.finance</a> product</p>
+                <p style="font-size: 200%;" id="navbar_title" class="green"><b>Kitten</b>Swap</p>
+                <p><a href="https://t.me/kitten_finance_group" target="_blank" style="font-size: 110%; padding: 10px; text-decoration: none;">Telegram</a> </p>
+                <p><a href="https://kitten-finance.medium.com/" target="_blank" style="font-size: 110%; padding: 10px; text-decoration: none;">Medium Essays</a></p>
+                <p style="font-size: 150%;">by <a href="https://www.kitten.finance" target="_blank" class="green" style="padding: 10px 0 10px 0px; text-decoration: none;">Kitten.finance</a></p>
             </div>
         </div>
-        <br><br>
-        <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em;">KittenSwap Testnet for Limit Orders</div>
-        <br>
         <div id="main-wrap">
             <div id="main">
-                <div class="panel" id="everyone_div">
-                    <div class="title" style="font-size: 130%; text-align: center;">Everyone's Orders</div>
-                    <div class="table_wrap" style="margin-top: 1em;">
-                        <table class="order_table" style="width:100%">
-                            <thead>
-                                <tr id="order_table_head">
-                                    <th>id</th>
-                                    <th>maker</th>
-                                    <th>order</th>
-                                    <th>amt</th>
-                                    <th>token</th>
-                                    <th>@ price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>                 
-                </div>
-                <div class="panel order_main order_trade">
-                    <div class="flexbox">
-                        <span class="title">Trade an order</span>
-                        <span class="title lightgray order_log"></span>
-                        <div><button class="button btn_trade input_hide" style="flex: 1;">Trade #<span class="order_id">N/A</span></button></div>
-                    </div>
-                    <div class="input_hide">
-                        <select class="input_op" size="1" disabled>
-                            <option selected>BUY</option>
-                            <option>SELL</option>
+                <br>
+                <div class="title" style="font-size: 300%; letter-spacing: 0.2em; font-weight: bold;">The LIQUID token</div>
+                <br><br>
+                <div style="font-size: 110%;" class="monospace">current liquidity = <span class="KS_gEthReserve">loading...</span> ETH + <span class="KS_gTokenReserve">loading...</span> LIQUID</div>
+                <br><br>
+                <div class="order_main panel" style="display: inline-block; padding: 1em;">
+                    <div style="position: relative;">
+                        <input placeholder="" class="input token_in_amt">
+                        <select class="token_in" size="1">
+                            <option selected>ETH</option>
+                            <option>LIQUID</option>
                         </select>
-                        <select class="input_token" size="1" disabled>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="btn_token_change">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C3C5CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="order_info">&nbsp;</div>
+                    </div>
+                    <div style="position: relative;">
+                        <input placeholder="" class="input token_out_amt" disabled>
+                        <select class="token_out" size="1">
+                            <option>ETH</option>
+                            <option selected>LIQUID</option>
                         </select>
-                        <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
-                        @
-                        <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px" disabled></div><br>
                     </div>
-                    <div class="gray" style="margin-top:1em">Buy from sell orders. Sell to buy orders. Token amt can be changed.</div>
+                    <div class="order_log">slippage tolerance: 0.2%</div>
+                    <button class="button btn_trade" disabled style="">loading...</button>
                 </div>
-                <div><span id="log_now">loading...</span><span class="gray"> @ <span id="log_latency">?</span> s ago</span></div><br>
-            </div>
-            <div style="border-left: 1px solid #444; margin-top: 1em; margin-bottom: 2em;"></div>
-            <div id="sidebar" style="display: flex; flex-direction: column;">
-                <div class="panel" id="user_div">
-                    <div class="title" style="font-size: 130%; text-align: center">Your Orders</div>
-                    <div class="table_wrap" style="margin-top: 1em;">
-                        <table class="order_table" style="width:100%">
-                            <thead>
-                                <tr id="order_table_head">
-                                    <th>id</th>
-                                    <th>maker</th>
-                                    <th>order</th>
-                                    <th>amt</th>
-                                    <th>token</th>
-                                    <th>@ price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                <br>
+                <div id="log" class="monospace"></div>
+                <br>
+                <div style="line-height: 1.5; padding: 2em; color: #aaa" class="panel monospace">
+                    LIQUID is a token with good liquidity.
+                    <ul>
+                        <li>Its liquidity is always better than 4200 ETH.</li>
+                        <li>Its price is always higher than 0.1 ETH,<br>
+                            even if everyone sells.</li>
+                        <li>Therefore its downside is capped.</li>
+                    </ul>
+                    <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
+                    Tokenomics of LIQUID:
+                    <ul>
+                        <li>LIQUID is deflationary. Its supply always decrease.</li>
+                        <li>When you transfer LIQUID, 0.6% of it is burned.</li>
+                        <li>When you sell LIQUID, 0.35% of it is burned,<br>
+                            moreover 0.25% goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</li>
+                        The amt shown in UI is the correct final amt.
+                        <li>When you buy LIQUID, there is zero fee.</li>
+                    </ul>
+                    <div style="margin-top: 0.7em;">Hence, all holders can collect "LP fee", without IL risk.</div>
+                    <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
+                    Remark:
+                    <ul>
+                        <li>Note Uniswap charges 0.3% (buy) + 0.3% (sell) = 0.6%.</li>
+                        <li>Here KittenSwap charges 0% (buy) + 0.6% (sell) = 0.6%.</li>
+                        <li>Therefore it's good to trade LIQUID on KittenSwap.</li>
+                    </ul>
+                    <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
+                    All of the 42000 LIQUID tokens are distributed here.
+                    <br>No presale. No premine. No farming. 100% fair.
                 </div>
-                <div class="panel order_main order_create">
-                    <div class="flexbox">
-                        <span class="title">Create an order</span>
-                        <span class="title lightgray order_log">enter amt and price</span>
-                        <div><button class="button btn_create" style="flex:1">Create</button></div>
-                    </div>
-                    <select class="input_op" size="1">
-                        <option selected>BUY</option>
-                        <option>SELL</option>
-                    </select>
-                    <select class="input_token" size="1">
-                    </select>
-                    <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
-                    @
-                    <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px"></div>
-                </div>
-
-                <div class="panel order_main order_modify">
-                    <div class="flexbox">
-                        <span class="title">Modify an order</span>
-                        <span class="title lightgray order_log"></span>
-                        <div><button class="button btn_modify input_hide" style="flex:1;">Modify #<span class="order_id">N/A</span></button></div>
-                    </div>
-                    <div class="input_hide">
-                        <select class="input_op" size="1" disabled>
-                            <option selected>BUY</option>
-                            <option>SELL</option>
-                        </select>
-                        <select class="input_token" size="1" disabled>
-                        </select>
-                        <div class="input_wrap"><input placeholder="token amt" class="input token_amt" style="width: 100px"></div>
-                        @
-                        <div class="input_wrap"><input placeholder="price (ETH)" class="input token_price" style="width: 100px"></div>
-                        <div class="gray" style="margin-top:1em">To cancel an order, set token amt to 0.</div>
-                    </div>
-                </div>
-                <div id="log"></div><br>
             </div>
         </div>
         <div id="footer">
-            <br><div style="text-align: center;" class="lightgray">
-                <a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
-                Switch MetaMask to <b>Ropsten testnet</b>. &nbsp;&nbsp;&nbsp;&nbsp; 
-                <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x0a4013b1D9a8d91280e79633Cb64BE8365E00529" target="_blank">Get TestCoin</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
-                <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x07CAC437f097deb59a04A570ec3073e233423135" target="_blank">Get BetCoin</a>. &nbsp;&nbsp;&nbsp;&nbsp; 
+            <br>
+            <div style="text-align: center;" class="lightgray">
+                <a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH</a>. &nbsp;&nbsp;&nbsp;&nbsp;
+                Switch MetaMask to <b>Ropsten testnet</b>. &nbsp;&nbsp;&nbsp;&nbsp;
             </div><br>
             <div style="text-align: center; display: none;">Commission = <span class="fee_percent">?</span> % (only charged on successful trades). <span class="lightgray">&nbsp;&nbsp;&nbsp;Accumulated <span class="fee_total">?</span> ETH (for <a href="https://www.kitten.finance" target="_blank">$KIF</a> buybacks).</span></div>
             <br>
             <div class="navbar_wrap">
                 <div class="navbar no_underline bottom_bar">
-                    <a href="https://discord.gg/pMaZswC" target="_blank">Discord</a> <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a>
+                    <a href="https://discord.gg/pMaZswC" target="_blank">Discord</a>
+                    <a href="https://t.me/kitten_finance_group" target="_blank">Telegram (more popular)</a>
+                    <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a>
                     <a href="https://kitten-finance.medium.com/" target="_blank">Medium</a>
                 </div>
             </div>
@@ -481,11 +486,11 @@
     <script type="text/javascript" src="js/ethers-5.0.umd.min.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script>
+    <!-- <script>
         // var clicky_site_ids = clicky_site_ids || [];
         // clicky_site_ids.push(101285073);
     </script>
-    <script async src="//static.getclicky.com/js"></script>
+    <script async src="//static.getclicky.com/js"></script> -->
     <!-- <script type="text/javascript" src="js/lightweight-charts.standalone.production.js"></script> -->
 </body>
 
