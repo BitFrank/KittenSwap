@@ -428,6 +428,16 @@
             margin-top: 1em;
             height: 1em;
         }
+
+        #liquid_title {
+            font-size: 300%;
+            letter-spacing: 0.2em;
+            font-weight: bold;
+            font-family: inherit;
+            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 
@@ -444,7 +454,7 @@
         <div id="main-wrap">
             <div id="main">
                 <br>
-                <div class="title" style="font-size: 300%; letter-spacing: 0.2em; font-weight: bold; font-family: inherit;">The LIQUID token</div>
+                <div class="title" id="liquid_title">The LIQUID token</div>
                 <br><br>
                 <div style="font-size: 110%;" class="monospace">current liquidity = <span class="KS_gEthReserve">loading...</span> ETH + <span class="KS_gTokenReserve">loading...</span> LIQUID</div>
                 <br><br>
@@ -534,7 +544,7 @@
                     Because LIQUID is bought & sold using the bonding curve, no one needs to provide the initial <span class="KS_initialETH">...</span> ETH, yet everyone can enjoy the good liquidity.
                     <br><br>The liquidity is REAL. Enter a large amount now, and see the small price impact.
                     <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
-                </div>                
+                </div>
             </div>
         </div>
         <div id="footer">
