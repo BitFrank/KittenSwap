@@ -434,7 +434,13 @@
             letter-spacing: 0.2em;
             font-weight: bold;
             font-family: inherit;
-            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+            background-image: linear-gradient(180deg, #2af598 10%, #009efd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;            
+        }
+
+        .liquid {
+            background-image: linear-gradient(180deg, #2af598 10%, #40defd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -506,24 +512,24 @@
                 <div><a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH here to test it</a></div>
                 <br>
                 <div class="panel monospace">
-                    <div class="title">Introducing LIQUID</div>
-                    LIQUID is a token with good liquidity.
+                    <div class="title">Introducing <span class="liquid">LIQUID</span></div>
+                    <span class="liquid">LIQUID</span> is a token with good liquidity.
                     <ul>
                         <li>Its liquidity is always better than <span class="KS_initialETH">...</span> ETH. The price impact is small even for large orders.</li>
                         <li>Its price is always higher than <span class="KS_initialPrice">...</span> ETH, even if everyone sells.</li>
                     </ul>
                     <div class="vline"> </div>
-                    All of the <span class="KS_initialToken">...</span> LIQUID tokens are distributed here. No presale. No premine. No farming. 100% fair.
+                    All of the <span class="KS_initialToken">...</span> <span class="liquid">LIQUID</span> tokens are distributed here. No presale. No premine. No farming. 100% fair.
                 </div>
                 <div class="panel monospace">
                     <div class="title">Collect TX fee, without IL risk</div>
-                    LIQUID is deflationary. Its supply always decrease.
+                    <span class="liquid">LIQUID</span> is deflationary. Its supply always decrease.
                     <ul>
-                        <li>When you transfer LIQUID, <span class="KS_gTransferBurn">...</span> of it is burned.</li>
-                        <li>When you sell LIQUID, <span class="KS_gSellBurn">...</span> of the received ETH will automatically buy back LIQUID and burn.
+                        <li>When you transfer <span class="liquid">LIQUID</span>, <span class="KS_gTransferBurn">...</span> of it is burned.</li>
+                        <li>When you sell <span class="liquid">LIQUID</span>, <span class="KS_gSellBurn">...</span> of the received ETH will automatically buy back <span class="liquid">LIQUID</span> and burn.
                             <span class="showIfHaveTreasury" style="display: none;">Moreover <span class="KS_gSellTreasury">...</span> goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</span>
                         <li>The amt shown in UI is the correct final amt.</li>
-                        <li>When you buy LIQUID, there is zero fee.</li>
+                        <li>When you buy <span class="liquid">LIQUID</span>, there is zero fee.</li>
                     </ul>
                     <div style="margin-top: 0.7em;">Hence, holders can collect TX fee without IL risk.</div>
                 </div>
@@ -535,13 +541,13 @@
                         <li>Uniswap charges 0.3% (buy) + 0.3% (sell) = 0.6%.</li>
                     </ul>
                     <div class="vline"> </div>
-                    <span class="green">Hence LIQUID is not charging any tax at all, unlike previous deflationary tokens with extra heavy tax.</span>
+                    <span class="green">Hence <span class="liquid">LIQUID</span> is not charging any tax at all, unlike previous deflationary tokens with extra heavy tax.</span>
                     <div class="vline"> </div>
-                    And LIQUID holders can automatically collect TX fee, unlike Uniswap where one has to become a LP.
+                    And <span class="liquid">LIQUID</span> holders can automatically collect TX fee, unlike Uniswap where one has to become a LP.
                 </div>
                 <div class="panel monospace">
                     <div class="title">The Innovation of KittenSwap: Free Liquidity</div>
-                    Because LIQUID is bought & sold using the bonding curve, no one needs to provide the initial <span class="KS_initialETH">...</span> ETH, yet everyone can enjoy the good liquidity.
+                    Because <span class="liquid">LIQUID</span> is bought & sold using the bonding curve, no one needs to provide the initial <span class="KS_initialETH">...</span> ETH, yet everyone can enjoy the good liquidity.
                     <br><br>The liquidity is REAL. Enter a large amount now, and see the small price impact.
                     <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
                 </div>
