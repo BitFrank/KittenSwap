@@ -202,24 +202,12 @@ p {
 
 .input_wrap .button {}
 
-.trade_panel select {
-    overflow-y: auto;
-}
-
 .flexbox {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
-}
-
-.trade_panel button {
-    width: 24%;
-}
-
-.token_panel button {
-    width: 24%;
 }
 
 #log {
@@ -237,52 +225,4 @@ a:visited {
 a:hover {
     color: #f00 !important;
     cursor: pointer;
-}
-
-.loader {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-top: 0.5em;
-}
-
-.loader:after {
-    content: " ";
-    display: block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 4px solid #000;
-    border-color: #000 transparent #000 transparent;
-    animation: loader 1.2s linear infinite;
-}
-
-@keyframes loader {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.livecoinwatch-widget-1 {
-    margin: 0 auto !important;
-}
-
-.videoWrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-}
-
-.videoWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
