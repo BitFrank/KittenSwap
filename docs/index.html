@@ -316,35 +316,53 @@
         }
     </style>
     <style>
-        .order_main select {
+        .order_line input {
+            padding: 1.5em 0.5em 0.5em 0.5em;
+            font-size: 200%;
+            width: 12.1em;
+            letter-spacing: 0.1em;
+            border: 1px solid #222;
+        }
+
+        .order_line select {
             position: absolute;
             right: 0.4em;
             background: black;
-            top: 0.2em;
-            padding: 0.5em;
+            top: 1.7em;
+            padding: 0.5em 0.5em 0.4em 0.5em;
             cursor: pointer;
             font-size: 150%;
+        }
+
+        select {
             text-align-last: right;
+
+        }
+
+        option {
+            direction: rtl;
+        }
+
+        select:focus {
+            outline: 0
+        }
+
+        .token_info {
+            position: absolute;
+            top: 0.7em;
+            left: 1em;
+            width: calc(100% - 2em);
+        }
+
+        .token_info,
+        .order_log,
+        .order_info {
+            color: #999;
         }
 
         .token_out_amt,
         .token_out {
             background: #111 !important;
-        }
-
-        .order_main option {
-            direction: rtl;
-        }
-
-        .order_main select:focus {
-            outline: 0
-        }
-
-        .order_main input {
-            height: 2em;
-            font-size: 200%;
-            width: 10em;
-            letter-spacing: 0.1em;
         }
 
         .btn_trade {
@@ -365,6 +383,7 @@
         .btn_token_change {
             position: relative;
             top: 3px;
+            text-align: center;
             padding: 1em 1em 1em 0;
             display: inline-block;
             cursor: pointer;
@@ -376,11 +395,17 @@
         }
 
         .order_log {
-            margin: 1em 0;
+            position: absolute;
+            right: 0;
         }
 
         .order_info {
             display: inline-block;
+        }
+
+        .select_slippage {
+            padding: 1em 0;
+            font-size: inherit;
         }
     </style>
 </head>
@@ -402,8 +427,10 @@
                 <br><br>
                 <div style="font-size: 110%;" class="monospace">current liquidity = <span class="KS_gEthReserve">loading...</span> ETH + <span class="KS_gTokenReserve">loading...</span> LIQUID</div>
                 <br><br>
-                <div class="order_main panel" style="display: inline-block; padding: 1em;">
-                    <div style="position: relative;">
+                <div class="order_main panel" style="display: inline-block; padding: 1em; position: relative;">
+                    <div style="position: relative;" class="order_line order_input">
+                        <div class="token_info">From<div style="float:right" class="token_have_in_amt"></div>
+                        </div>
                         <input placeholder="" class="input token_in_amt">
                         <select class="token_in" size="1">
                             <option selected>ETH</option>
@@ -419,54 +446,69 @@
                         </div>
                         <div class="order_info">&nbsp;</div>
                     </div>
-                    <div style="position: relative;">
+                    <div style="position: relative;" class="order_line order_output">
+                        <div class="token_info">To<div style="float:right" class="token_have_out_amt"></div>
+                        </div>
                         <input placeholder="" class="input token_out_amt" disabled>
                         <select class="token_out" size="1">
                             <option>ETH</option>
                             <option selected>LIQUID</option>
                         </select>
                     </div>
-                    <div class="order_log">slippage tolerance: 0.2%</div>
+                    <div style="height: 3.5em; position: relative;">
+                        <div class="order_log">
+                            slippage tolerance
+                            <select class="select_slippage" size="1">
+                                <option selected>0.2%</option>
+                                <option>0.5%</option>
+                                <option>1%</option>
+                                <option>1.5%</option>
+                                <option>2%</option>
+                            </select>
+                        </div>                        
+                    </div>
                     <button class="button btn_trade" disabled style="">loading...</button>
                 </div>
                 <br>
                 <div id="log" class="monospace"></div>
-                <br><div><a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH here to test it</a></div>
+                <br>
+                <div><a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH here to test it</a></div>
                 <br>
                 <div style="line-height: 1.5; padding: 2em; color: #aaa" class="panel monospace">
                     LIQUID is a token with good liquidity.
                     <ul>
-                        <li>Its liquidity is always better than 4200 ETH.</li>
-                        <li>Its price is always higher than 0.1 ETH,<br>
+                        <li>Its liquidity is always better than <span class="KS_initialETH">...</span> ETH.
+                            <br>The price impact is small even for large orders.</li>
+                        <li>Its price is always higher than <span class="KS_initialPrice">...</span> ETH,<br>
                             even if everyone sells.</li>
-                        <li>Therefore its downside is capped.</li>
                     </ul>
-                    <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
-                    The interesting part: because LIQUID is bought & sold
-                    <br>using the bonding curve, no one needs to provide the
-                    <br>initial 4200 ETH, yet everyone can still enjoy the
-                    <br>good liquidity.                    
                     <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
                     Tokenomics of LIQUID:
                     <ul>
                         <li>LIQUID is deflationary. Its supply always decrease.</li>
-                        <li>When you transfer LIQUID, 0.6% of it is burned.</li>
-                        <li>When you sell LIQUID, 0.35% of it is burned,<br>
-                            moreover 0.25% goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</li>
-                        The amt shown in UI is the correct final amt.
+                        <li>When you transfer LIQUID, <span class="KS_gTransferBurn">...</span> of it is burned.</li>
+                        <li>When you sell LIQUID, <span class="KS_gSellBurn">...</span> of the received ETH
+                            <br>will automatically buy back LIQUID and burn.
+                            <span class="showIfHaveTreasury" style="display: none;"><br>Moreover <span class="KS_gSellTreasury">...</span> goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</span>
+                            <br>The amt shown in UI is the correct final amt.
                         <li>When you buy LIQUID, there is zero fee.</li>
                     </ul>
-                    <div style="margin-top: 0.7em;">Hence, all holders can collect "LP fee", without IL risk.</div>
+                    <div style="margin-top: 0.7em;">Hence, holders can collect "LP fee" without IL risk.</div>
                     <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
                     Remark:
                     <ul>
                         <li>Note Uniswap charges 0.3% (buy) + 0.3% (sell) = 0.6%.</li>
-                        <li>Here KittenSwap charges 0% (buy) + 0.6% (sell) = 0.6%.</li>
+                        <li>Here KittenSwap charges 0% (buy) + <span class="KS_gSellBurnTotal">...</span> (sell) = <span class="KS_gSellBurnTotal">...</span>.</li>
                         <li>Therefore it's good to trade LIQUID on KittenSwap.</li>
                     </ul>
                     <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
-                    All of the 42000 LIQUID tokens are distributed here.
+                    All of the <span class="KS_initialToken">...</span> LIQUID tokens are distributed here.
                     <br>No presale. No premine. No farming. 100% fair.
+                    <div style="width: 100%; border-top: 1px solid #444; margin-top: 1em; height: 1em;"> </div>
+                    The interesting part: because LIQUID is bought & sold
+                    <br>using the bonding curve, no one needs to provide the
+                    <br>initial <span class="KS_initialETH">...</span> ETH, yet everyone can still enjoy the
+                    <br>good liquidity.
                 </div>
             </div>
         </div>
