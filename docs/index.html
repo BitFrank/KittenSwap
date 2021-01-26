@@ -51,7 +51,7 @@
 
         #main-wrap,
         #footer_help {
-            max-width: 74em;
+            max-width: 45em;
         }
 
         body {
@@ -412,6 +412,7 @@
             line-height: 1.5;
             padding: 2em;
             color: #aaa;
+            width: 32.5em;
         }
 
         .monospace .title {
@@ -518,121 +519,107 @@
                     </div>
                     <button class="button btn_trade" disabled style="">loading...</button>
                 </div>
-                <div id="log" class="monospace" style="margin-top: 4em; margin-bottom: 5em;"></div>
-                <div style="display: flex;">
-                    <div style="flex:1; margin-right: 1em;">
-                        <div class="panel monospace">
-                            <div class="title">Notice</div>
-                            We are testing the contract and limiting purchases.
-                            <br>THE MARKET IS NOT OPEN YET.
-                            <ul>
-                                <li>You can buy: <span class="whitelist_eth_per_order">...</span> ETH per order.</li>
-                                <li>You can own: <span class="whitelist_own_limit">...</span></li>
-                                <li id="whitelist_extra" style="display: none;"></li>
-                            </ul>
-                            <!-- <div><a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH here to test it</a></div> -->
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">Introducing <span class="liquid">LIQUID</span></div>
-                            <span class="liquid">LIQUID</span> is a new concept design with deep floor liquidity & ever-rising floor price.
-                            <ul>
-                                <li>Its liquidity is always greater than <span class="KS_initialETH">...</span> ETH. Feel free to trade large orders.</li>
-                                <li>The price of <span class="liquid">LIQUID</span> is always higher than <span class="KS_initialPrice">...</span> ETH, even if every holder sells.</li>
-                            </ul>
-                            <div class="vline"> </div>
-                            All initial <span class="KS_initialToken">...</span> <span class="liquid">LIQUID</span> tokens are distributed here. No presale. No premine. No farming.
-                        </div>
-                        <div class="panel monospace darkred">
-                            <div class="title darkred">WARNING</div>
-                            The LIQUID <a class="liquid_contract" href='' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs, which may cause your token to lose value.
-                            <!-- <br><br>Please do your own research before purchasing LIQUID. -->
-                            <br><br>Use at your own risk, and don't buy more than you are willing to lose.
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">Collect TX fee, without IL risk</div>
-                            <span class="liquid">LIQUID</span> is deflationary. The supply always decrease.
-                            <ul>
-                                <li>When you transfer <span class="liquid">LIQUID</span>, <span class="KS_gTransferBurn">...</span> of it is burned forever, and the price is <span class="green">automatically boosted</span>.</li>
-                                <li>When you sell <span class="liquid">LIQUID</span>, <span class="KS_gSellBurn">...</span> of it is burned forever, and the price is <span class="green">automatically boosted</span>.
-                                    <span class="showIfHaveTreasury" style="display: none;">Moreover <span class="KS_gSellTreasury">...</span> goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</span>
-                                <li>The amt shown in the UI is the correct final amt.</li>
-                                <li>When you buy <span class="liquid">LIQUID</span>, there is ZERO fee.</li>
-                            </ul>
-                            <div class="vline"> </div>
-                            <div>Therefore you can automatically collect TX fee by holding <span class="liquid">LIQUID</span>, and you don't need to become a LP.</div>
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">Comparing KittenSwap with Uniswap</div>
-                            From the above TX fee model, we find:
-                            <ul>
-                                <li>KittenSwap charges 0% (buy) + <span class="KS_gSellBurnTotal">...</span> (sell) = <span class="KS_gSellBurnTotal">...</span>.</li>
-                                <li>Uniswap charges 0.3% (buy) + 0.3% (sell) = 0.6%.</li>
-                            </ul>
-                            <div class="vline"> </div>
-                            <span class="green">Hence <span class="liquid">LIQUID</span> is not charging any tax at all, unlike previous deflationary tokens with extra heavy tax.</span>
-                            <div class="vline"> </div>
-                            And trading on KittenSwap costs only 50K to 80K gas, which is much cheaper than Uniswap.
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">KittenSwap Innovation: Auto-Boost</div>
-                            Whenever <span class="liquid">LIQUID</span> is burned, its price is automatically boosted as a result of the reduced total supply.
-                            <br><br>Hence the price of <span class="liquid">LIQUID</span> will immediately rise whenever someone transfers it, which is nice.
-                            <br><br>The price rise is REAL. You can immediately see the price rise in the UI, and you can trade it.
-                            <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">KittenSwap Innovation: Free Liquidity</div>
-                            Because <span class="liquid">LIQUID</span> is bought & sold using the bonding curve, no one needs to provide the initial <span class="KS_initialETH">...</span> ETH, yet everyone can enjoy the deep liquidity.
-                            <br><br>The liquidity is REAL. Enter a large amount now, and see the small price impact.
-                            <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">The Future of LIQUID</div>
-                            The unique design of <span class="liquid">LIQUID</span> enables it for unique use cases. Join our <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> and follow our <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a> for updates.
-                        </div>
+                <div id="log" class="monospace" style="margin-top: 3em; margin-bottom: 4em;"></div>
+
+                <div class="panel monospace">
+                    <div class="title">Notice</div>
+                    We are testing the contract and limiting purchases.
+                    <br>THE MARKET IS NOT OPEN YET.
+                    <ul>
+                        <li>You can buy: <span class="whitelist_eth_per_order">...</span> ETH per order.</li>
+                        <li>You can own: <span class="whitelist_own_limit">...</span></li>
+                        <li id="whitelist_extra" style="display: none;"></li>
+                    </ul>
+                    <!-- <div><a href="https://faucet.dimensions.network/" target="_blank">Get Ropsten ETH here to test it</a></div> -->
+                </div>                
+                <div class="panel monospace">
+                    <div class="title">Introducing <span class="liquid">LIQUID</span></div>
+                    <span class="liquid">LIQUID</span> is a new concept design with deep floor liquidity & ever-rising floor price.
+                    <ul>
+                        <li>Its liquidity is always greater than <span class="KS_initialETH">...</span> ETH. Feel free to trade large orders.</li>
+                        <li>The price of <span class="liquid">LIQUID</span> is always higher than <span class="KS_initialPrice">...</span> ETH, even if every holder sells.</li>
+                    </ul>
+                    <div class="vline"> </div>
+                    All initial <span class="KS_initialToken">...</span> <span class="liquid">LIQUID</span> tokens are distributed here. No presale. No premine. No farming.
+                </div>
+                <div class="panel monospace">
+                    <div class="title">Live Status</div>
+                    <div style="margin-bottom: 0.5em;">Total supply: <span class="KS_totalSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                    <div style="margin-bottom: 0.5em;">Burned supply: <span class="KS_burnedSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                    <div style="margin-bottom: 0.5em;">Circulating supply: <span class="KS_cirSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                    <div>Floor price: <span class="floor_price">...</span> ETH per <span class="liquid">LIQUID</span>.</div>
+                </div>
+                <div class="panel monospace">
+                    <div class="title">Live Events</div>
+                    <div class="table_wrap">
+                        <table id="event_table" style="width:100%">
+                            <thead>
+                                <tr id="event_table_head">
+                                    <th>time</th>
+                                    <th>event</th>
+                                    <th>amt</th>
+                                    <th>user</th>
+                                    <th>detail</th>
+                                    <th>gas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+                                <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+                                <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+                                <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+                                <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div style="flex:1">
-                        <div class="panel monospace">
-                            <div class="title">Live Status</div>
-                            <div style="margin-bottom: 0.5em;">Total supply: <span class="KS_totalSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                            <div style="margin-bottom: 0.5em;">Burned supply: <span class="KS_burnedSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                            <div style="margin-bottom: 0.5em;">Circulating supply: <span class="KS_cirSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                            <div>Floor price: <span class="floor_price">...</span> ETH per <span class="liquid">LIQUID</span>.</div>
-                        </div>
-                        <div class="panel monospace">
-                            <div class="title">Live Events</div>
-                            <div class="table_wrap">
-                                <table id="event_table" style="width:100%">
-                                    <thead>
-                                        <tr id="event_table_head">
-                                            <th>time</th>
-                                            <th>event</th>
-                                            <th>amt</th>
-                                            <th>user</th>
-                                            <th>detail</th>
-                                            <th>gas</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                        <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                </div>                
+                <div class="panel monospace darkred">
+                    <div class="title darkred">WARNING</div>
+                    The LIQUID <a class="liquid_contract" href='' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs, which may cause your token to lose value.
+                    <!-- <br><br>Please do your own research before purchasing LIQUID. -->
+                    <br><br>Use at your own risk, and don't buy more than you are willing to lose.
+                </div>
+                <div class="panel monospace">
+                    <div class="title">Collect TX fee, without IL risk</div>
+                    <span class="liquid">LIQUID</span> is deflationary. The supply always decrease.
+                    <ul>
+                        <li>When you transfer <span class="liquid">LIQUID</span>, <span class="KS_gTransferBurn">...</span> of it is burned forever, and the price is <span class="green">automatically boosted</span>.</li>
+                        <li>When you sell <span class="liquid">LIQUID</span>, <span class="KS_gSellBurn">...</span> of it is burned forever, and the price is <span class="green">automatically boosted</span>.
+                            <span class="showIfHaveTreasury" style="display: none;">Moreover <span class="KS_gSellTreasury">...</span> goes to <a href="https://www.kitten.finance" target="_blank">Kitten.finance</a> treasury.</span>
+                        <li>The amt shown in the UI is the correct final amt.</li>
+                        <li>When you buy <span class="liquid">LIQUID</span>, there is ZERO fee.</li>
+                    </ul>
+                    <div class="vline"> </div>
+                    <div>Therefore you can automatically collect TX fee by holding <span class="liquid">LIQUID</span>, and you don't need to become a LP.</div>
+                </div>
+                <div class="panel monospace">
+                    <div class="title">Comparing KittenSwap with Uniswap</div>
+                    From the above TX fee model, we find:
+                    <ul>
+                        <li>KittenSwap charges 0% (buy) + <span class="KS_gSellBurnTotal">...</span> (sell) = <span class="KS_gSellBurnTotal">...</span>.</li>
+                        <li>Uniswap charges 0.3% (buy) + 0.3% (sell) = 0.6%.</li>
+                    </ul>
+                    <div class="vline"> </div>
+                    <span class="green">Hence <span class="liquid">LIQUID</span> is not charging any tax at all, unlike previous deflationary tokens with extra heavy tax.</span>
+                    <div class="vline"> </div>
+                    And trading on KittenSwap costs only 50K to 80K gas, which is much cheaper than Uniswap.
+                </div>
+                <div class="panel monospace">
+                    <div class="title">KittenSwap Innovation: Auto-Boost</div>
+                    Whenever <span class="liquid">LIQUID</span> is burned, its price is automatically boosted as a result of the reduced total supply.
+                    <br><br>Hence the price of <span class="liquid">LIQUID</span> will immediately rise whenever someone transfers it, which is nice.
+                    <br><br>The price rise is REAL. You can immediately see the price rise in the UI, and you can trade it.
+                    <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
+                </div>
+                <div class="panel monospace">
+                    <div class="title">KittenSwap Innovation: Free Liquidity</div>
+                    Because <span class="liquid">LIQUID</span> is bought & sold using the bonding curve, no one needs to provide the initial <span class="KS_initialETH">...</span> ETH, yet everyone can enjoy the deep liquidity.
+                    <br><br>The liquidity is REAL. Enter a large amount now, and see the small price impact.
+                    <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
+                </div>
+                <div class="panel monospace">
+                    <div class="title">The Future of LIQUID</div>
+                    The unique design of <span class="liquid">LIQUID</span> enables it for unique use cases. Join our <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> and follow our <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a> for updates.
                 </div>
             </div>
         </div>
