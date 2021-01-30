@@ -602,8 +602,8 @@
                         <div class="title">Introducing <span class="liquid">LIQUID</span></div>
                         <span class="liquid">LIQUID</span> is a new concept design with deep floor liquidity & ever-rising floor price.
                         <ul>
-                            <li>Its liquidity is always greater than <span class="KS_initialETH">...</span> ETH. Feel free to trade large orders.</li>
-                            <li>The price of <span class="liquid">LIQUID</span> is always higher than <span class="KS_initialPrice">...</span> ETH, even if every holder sells.</li>
+                            <li><span class="liquid">LIQUID</span>'s liquidity is always greater than <span class="KS_initialETH">...</span> ETH. Feel free to trade large orders.</li>
+                            <li><span class="liquid">LIQUID</span>'s price is always higher than <span class="floor_price">...</span> ETH, even if every holder sells.</li>
                         </ul>
                         <div class="vline"> </div>
                         All initial <span class="KS_initialToken">...</span> <span class="liquid">LIQUID</span> tokens are distributed here. No presale. No premine. No farming.
@@ -631,7 +631,7 @@
                             </table>
                         </div>
                         <div style="margin-top: 2em;">
-                            <img src="chart/chart_liquid.png" style="width: 100%;">
+                            <img id="chart_image" src="" style="width: 100%;">
                         </div>
                     </div>
                     <div class="panel monospace">
@@ -706,6 +706,9 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("chart_image").src = `chart/chart_liquid.png?${Math.random()}`
+    </script>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/ethers-5.0.umd.min.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
