@@ -620,7 +620,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div style="margin-top: 2em;">
+                        <div style="margin-top: 2em; margin-bottom: -1em;">
                             <img id="chart_image" src="" alt="" style="width: 100%;">
                         </div>
                     </div>
@@ -714,12 +714,16 @@
     <script type="text/javascript" src="js/helper.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script>
-        var img = new Image();
-        $(img).on("load", function () {
-            $("#chart_image").src = this.src;
-        });
+        // var img = new Image();
+        // $(img).on("load", function () {
+        //     $("#chart_image").src = this.src;
+        // });
+        // setInterval(function () {
+        //     img.src = `chart/chart_liquid.png?${Math.random()}`
+        // }, 60 * 1000);
+
         setInterval(function () {
-            img.src = `chart/chart_liquid.png?${Math.random()}`
+            document.getElementById("chart_image").src = `chart/chart_liquid.png?${Math.random()}`
         }, 60 * 1000);
 
         var clicky_site_ids = clicky_site_ids || [];
