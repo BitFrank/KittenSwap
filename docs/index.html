@@ -633,7 +633,7 @@
                         </ul>
                         <div class="vline"> </div>
                         All initial <span class="KS_initialToken">...</span> <span class="liquid">LIQUID</span> tokens are distributed here. No presale. No premine. No farming.
-                    </div>                    
+                    </div>
                     <div class="panel monospace">
                         <div class="title darkred">WARNING</div>
                         The LIQUID <a class="liquid_contract green" href='' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs, which may cause your token to lose value.
@@ -714,6 +714,14 @@
     <script type="text/javascript" src="js/helper.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script>
+        var img = new Image();
+        $(img).on("load", function () {
+            $("#chart_image").src = this.src;
+        });
+        setInterval(function () {
+            img.src = `chart/chart_liquid.png?${Math.random()}`
+        }, 60 * 1000);
+
         var clicky_site_ids = clicky_site_ids || [];
         clicky_site_ids.push(101299067);
     </script>
