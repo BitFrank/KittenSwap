@@ -522,7 +522,44 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        #panel_trollbox {
+            background-color: #111;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        #tlkio {
+            width: 100%;
+            height: 650px;
+        }
     </style>
+    <style id="css_advanced">
+        #panel_trollbox {
+            position: absolute;
+            right: calc(50% - 56em);
+            top: 1em;
+            width: 36em;
+        }
+
+        #panel_live {
+            position: absolute;
+            left: calc(50% - 56.5em);
+            top: 1em;
+        }
+
+        #tlkio {
+            width: 100%;
+            height: 900px;
+        }
+    </style>
+    <script>
+        document.getElementById('css_advanced').disabled = true
+
+        function layout_switch() {
+            document.getElementById('css_advanced').disabled = !document.getElementById('css_advanced').disabled
+        }
+    </script>
 </head>
 
 <body>
@@ -536,7 +573,7 @@
                 <p style="">by <a href="https://www.kitten.finance" target="_blank" class="lightgreen" style="padding: 10px 0 10px 0px; text-decoration: none;">Kitten.finance</a></p>
             </div>
         </div>
-        <div id="main-wrap">
+        <div id="main-wrap" style="position: relative;">
             <div id="main">
                 <div class="title" id="liquid_title" style="margin: 1em 0;">Buy LIQUID</div>
                 <div style="font-size: 110%; margin-bottom: 3em;" class="monospace">Current liquidity: <span class="KS_gEthReserve">...</span> ETH + <span class="KS_gTokenReserve">...</span> <span class="liquid">LIQUID</span></div>
@@ -598,15 +635,16 @@
                     </div>
                     <button class="button btn_trade" disabled style="">loading...</button>
                 </div>
-                <div id="log" class="monospace" style="margin-top: 3em; margin-bottom: 4em;"></div>
+                <div style="height: 2em;"> </div>
+                <div>
+                    <div id="log" class="monospace" style="display: inline-block;"></div>
+                    <div style="display: inline-block;"><a href="#" onclick="layout_switch()">[Switch Layout]</a></div>
+                </div>
+                <div style="height: 3em;"> </div>
                 <div id="info">
-                    <div class="panel monospace">
+                    <div class="panel monospace" id="panel_live">
                         <div class="title">Live Status</div>
-                        <div style="margin-bottom: 0.5em;">Total supply: <span class="KS_totalSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                        <div style="margin-bottom: 0.5em;">Burned supply: <span class="KS_burnedSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                        <div style="margin-bottom: 0.5em;">Circulating supply: <span class="KS_cirSupply">...</span> <span class="liquid">LIQUID</span>.</div>
-                        <div>Floor price: <span class="floor_price">...</span> ETH per <span class="liquid">LIQUID</span>.</div>
-                        <div class="table_wrap" style="margin-top: 1.5em;">
+                        <div class="table_wrap" style="margin-bottom: 1.5em;">
                             <table id="event_table" style="width:100%">
                                 <thead>
                                     <tr id="event_table_head">
@@ -622,7 +660,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div style="margin-top: 2em; margin-bottom: -1em;">
+                        <div style="margin-bottom: 0.5em;">Total supply: <span class="KS_totalSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                        <div style="margin-bottom: 0.5em;">Burned supply: <span class="KS_burnedSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                        <div style="margin-bottom: 0.5em;">Circulating supply: <span class="KS_cirSupply">...</span> <span class="liquid">LIQUID</span>.</div>
+                        <div>Floor price: <span class="floor_price">...</span> ETH per <span class="liquid">LIQUID</span>.</div>
+                        <div style="margin-top: 1.5em; margin-bottom: -1em;">
                             <img id="chart_image" src="" alt="" style="width: 100%;">
                         </div>
                     </div>
@@ -685,8 +727,8 @@
                         <div class="title">The Future of <span class="liquid">LIQUID</span></div>
                         The unique design of <span class="liquid">LIQUID</span> enables it for unique use cases. Join our <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> and follow our <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a> for updates.
                     </div>
-                    <div style="background-color: #111; margin-bottom: 1em; border-radius: 16px; overflow: hidden;">
-                        <div id="tlkio" data-channel="KittenSwap-trollbox" data-theme="theme--night" data-nickname="anonymous" style="width:100%; height:650px;"></div>
+                    <div id="panel_trollbox">
+                        <div id="tlkio" data-channel="KittenSwap-trollbox" data-theme="theme--night" data-nickname="anonymous"></div>
                     </div>
                 </div>
             </div>
