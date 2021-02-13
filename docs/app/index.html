@@ -74,7 +74,6 @@
 
         #sidebar {
             flex: 1;
-            background: #f7f7f7;
         }
 
         .mybox {
@@ -334,9 +333,7 @@
         }
 
         #sidebar {
-            /* background-color: #1a1a1a; */
-            background-color: #222;
-            /* color: #ccc; */
+            background: inherit;
         }
 
         .emphasize {
@@ -436,6 +433,26 @@
         }
     </style>
     <style>
+        body {
+            background: #000000 url(../img/bg.png) no-repeat;
+            background-position: right 5%;
+            background-attachment: fixed;
+
+            min-height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .panel {
+            background: rgba(11, 11, 11, 0.9);
+        }
+
+        select {
+            background-color: inherit;
+        }
+        option {
+            background-color: #000;
+        }        
     </style>
 </head>
 
