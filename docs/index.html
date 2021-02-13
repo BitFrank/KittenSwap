@@ -553,6 +553,28 @@
             height: 900px;
         }
     </style>
+    <style>
+        body {
+            background: #000000 url(../img/bg.png) no-repeat;
+            background-position: right center;
+            background-attachment: fixed;
+
+            min-height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .panel {
+            background: rgba(11, 11, 11, 0.9);
+        }
+
+        select {
+            background-color: inherit;
+        }
+        option {
+            background-color: #000;
+        }        
+    </style>
     <script>
         document.getElementById('css_advanced').disabled = true
 
@@ -577,7 +599,7 @@
         <div id="main-wrap" style="position: relative;">
             <div id="main">
                 <div class="title" id="liquid_title" style="margin: 1em 0;">Buy LIQUID</div>
-                <div style="font-size: 110%; margin-bottom: 3em;" class="monospace">Current liquidity: <span class="KS_gEthReserve">...</span> ETH + <span class="KS_gTokenReserve">...</span> <span class="liquid">LIQUID</span></div>
+                <div style="font-size: 110%; margin-bottom: 3em;" class="monospace">Liquidity: <span class="KS_gEthReserve">...</span> ETH + <span class="KS_gTokenReserve">...</span> <span class="liquid">LIQUID</span></div>
                 <div class="order_main panel" style="display: inline-block; padding: 1em; position: relative;">
                     <div style="position: relative;" class="order_line order_input">
                         <div class="token_info">From<div style="float:right" class="token_have_in_amt"></div>
