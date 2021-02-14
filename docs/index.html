@@ -83,7 +83,7 @@
         }
 
         .navbar_wrap {
-            background: #492;
+            background: inherit;
         }
 
         .button {
@@ -274,11 +274,6 @@
             background: #090;
         }
 
-        .navbar_wrap {
-            background-color: #111;
-            color: #ccc;
-        }
-
         .input {
             background: black;
             box-shadow: none;
@@ -335,7 +330,9 @@
         }
 
         .navbar a {
-            padding: 10px 0px;
+            position: relative;
+            top: -5px;
+            padding: 20px 0px;
             text-decoration: none;
         }
 
@@ -414,7 +411,7 @@
             letter-spacing: 0.1em;
             border: 1px solid #222;
         }
-        
+
         .select_slippage {
             padding: 1em 1em 0.8em 0.5em;
             font-size: inherit;
@@ -571,9 +568,10 @@
         select {
             background-color: inherit;
         }
+
         option {
             background-color: #000;
-        }        
+        }
     </style>
     <script>
         document.getElementById('css_advanced').disabled = true
@@ -582,18 +580,19 @@
             document.getElementById('css_advanced').disabled = !document.getElementById('css_advanced').disabled
         }
     </script>
+    <style>
+
+    </style>
 </head>
 
 <body>
     <div id="wrap">
         <div id="header" class="navbar_wrap title">
-            <div class="navbar">
-                <p style="" id="navbar_title" class="lightgreen"><b>Kitten</b>Swap</p>
-                <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a>
-                <a href="https://kitten-finance.medium.com/" target="_blank">Medium</a>
-                <a href="https://www.kittenswap.org/app/" target="_blank" style="color: yellow;">OrderBook</a>
-                <!-- <p><a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a></p> -->
-                <p style="">by <a href="https://www.kitten.finance" target="_blank" class="lightgreen" style="padding: 10px 0 10px 0px; text-decoration: none;">Kitten.finance</a></p>
+            <div class="navbar" style="padding: 2em 0;">
+                <p><img src="img/logo.svg" style="height: 55px;" /></p>
+                <a href="https://www.kittenswap.org/app/" target="_blank"><img src="img/kittenswap.png" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> OrderBook</a>
+                <a href="https://t.me/kitten_finance_group" target="_blank"><img src="img/telegram-logo.svg" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> Telegram</a>
+                <a href="https://www.kitten.finance" target="_blank"><img src="img/kitten-finance-32.png" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> Kitten.finance</a>
             </div>
         </div>
         <div id="main-wrap" style="position: relative;">
