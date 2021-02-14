@@ -27,6 +27,10 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
+        .navbar {
+            max-width: 70em;
+        }        
+
         #main-wrap,
         #footer_help {
             max-width: 75rem;
@@ -61,7 +65,7 @@
         }
 
         .navbar_wrap {
-            background: #492;
+            background: inherit;
         }
 
         .button {
@@ -350,11 +354,6 @@
             background: #090;
         }
 
-        .navbar_wrap {
-            background-color: #111;
-            color: #ccc;
-        }
-
         #navbar_title {
             color: #2a0;
         }
@@ -419,7 +418,9 @@
         }
 
         .navbar a {
-            padding: 10px 0px;
+            position: relative;
+            top: -5px;
+            padding: 20px 0px;
             text-decoration: none;
         }
 
@@ -458,16 +459,16 @@
 
 <body id="__main">
     <div id="wrap">
+
         <div id="header" class="navbar_wrap title">
-            <div class="navbar">
-                <p style="" id="navbar_title" class="lightgreen"><b>Kitten</b>Swap</p>
-                <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a>
-                <a href="https://kitten-finance.medium.com/" target="_blank">Medium</a>
-                <a href="https://www.kittenswap.org/" target="_blank" style="color: yellow;">$LIQUID</a>
-                <!-- <p><a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a></p> -->
-                <p style="">by <a href="https://www.kitten.finance" target="_blank" class="lightgreen" style="padding: 10px 0 10px 0px; text-decoration: none;">Kitten.finance</a></p>
+            <div class="navbar" style="padding: 2em 1em 2em 1em;">
+                <p><img src="img/logo.svg" style="height: 55px;" /></p>
+                <a href="https://www.kittenswap.org/" target="_blank"><img src="img/kittenswap.png" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> LIQUID</a>
+                <a href="https://t.me/kitten_finance_group" target="_blank"><img src="img/telegram-logo.svg" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> Telegram</a>
+                <a href="https://www.kitten.finance" target="_blank"><img src="img/kitten-finance-32.png" class="align-middle mr-2" height="21" style="position: relative; top:4px;"> Kitten.finance</a>
             </div>
         </div>
+
         <br><br>
         <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em;">KittenSwap for <a href="https://kitten-finance.medium.com/kittenswap-preview-1-bridging-amms-and-orderbooks-with-wide-limit-orders-bc1d17c06638" target="_blank">Wide Limit Orders</a></div>
         <br>
@@ -623,7 +624,7 @@
             <div style="text-align: center; display: none;">Commission = <span class="fee_percent">?</span> % (only charged on successful trades). <span class="lightgray">&nbsp;&nbsp;&nbsp;Accumulated <span class="fee_total">?</span> ETH (for <a href="https://www.kitten.finance" target="_blank">$KIF</a> buybacks).</span></div> -->
             <br>
             <div class="navbar_wrap">
-                <div class="navbar no_underline bottom_bar">
+                <div class="navbar no_underline bottom_bar" style="padding: 1em">
                     <a href="https://discord.gg/pMaZswC" target="_blank">Discord</a>
                     <a href="https://t.me/kitten_finance_group" target="_blank">Telegram (more popular)</a>
                     <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a>
