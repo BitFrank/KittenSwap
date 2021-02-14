@@ -480,32 +480,6 @@
         <br>
         <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em;">KittenSwap for <a href="https://kitten-finance.medium.com/kittenswap-preview-1-bridging-amms-and-orderbooks-with-wide-limit-orders-bc1d17c06638" target="_blank">Wide Limit Orders</a></div>
         <br>
-        <div style="width: 100%; display: flex; justify-content: center; margin: 4em 0;">
-            <div class="panel order_sugg" style="padding: 2em;">
-                <div class="title" style="font-size: 130%; text-align: center;">Smart Order Suggestion</div>
-                <br>
-                <div style="font-size: 130%;">
-                    I'd like to &nbsp;
-                    <div class="select">
-                        <select class="input_op" size="1">
-                            <option selected>BUY</option>
-                            <option>SELL</option>
-                        </select>
-                    </div>
-                    &nbsp;
-                    <div class="select">
-                        <select class="input_token" size="1"></select>
-                    </div>
-                    &nbsp;amt&nbsp;
-                    <input placeholder="token amt" class="input token_amt" style="width: 100px">
-                </div>
-                <div class="order_detail" style="margin-top: 1em; font-size: 120%;">loading...</div>
-                <div class="sugg_list"></div>
-                <div style="margin-top: 2em;" class="lightgray">You have <span class="wallet_amt_eth">...</span> ETH, <span class="wallet_amt_token">...</span> <span class="wallet_amt_token_name">(loading)</span></div>
-            </div>
-        </div>
-        <!-- <div style="width: 100%; display: flex; justify-content: center;"><div id="log2" style="">ready</div></div> -->
-        <!-- <br> -->
         <div id="main-wrap">
             <div id="main">
                 <div class="panel" id="everyone_div">
@@ -526,32 +500,6 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="panel order_panel order_trade">
-                    <div class="flexbox">
-                        <span class="title">Trade order</span>
-                        <span class="lightgray order_detail"></span>
-                        <div><button class="button btn_trade input_hide" style="flex: 1;">Trade #<span class="orderStr">N/A</span></button></div>
-                    </div>
-                    <div class="input_hide">
-                        <div class="select"><select class="input_op" size="1" disabled>
-                                <option selected>BUY</option>
-                                <option>SELL</option>
-                            </select></div>
-                        <div class="select"><select class="input_token" size="1" disabled>
-                            </select></div>
-                        amt&nbsp;<input placeholder="token amt" class="input token_amt" style="width: 100px">
-                        <div style="height: 1em;"> </div>
-                        &nbsp;Acceptable avg. price &nbsp;
-                        <input placeholder="price (ETH)" class="input token_price_acceptable" style="width: 100px">
-                        &nbsp; (ref. avg. price <span class="trade_price_ref">?</span>)
-                        <div style="border-top: 1px solid #333; margin: 1em 0;"> </div>
-                        Original order price range&nbsp;
-                        <input placeholder="price (ETH)" class="input token_price_low" style="width: 100px" disabled>
-                        &nbsp;to&nbsp;
-                        <input placeholder="price (ETH)" class="input token_price_high" style="width: 100px" disabled>
-                    </div>
-                    <div class="gray" style="margin-top:1em">Buy from sell orders. Sell to buy orders. Token amt can be changed.</div>
                 </div>
                 <div><span class="_log_now">loading...</span><span class="gray"> @ <span id="log_latency">?</span> s ago</span></div><br>
             </div>
@@ -576,26 +524,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="panel order_panel order_create">
-                    <div class="flexbox">
-                        <span class="title">Create order</span>
-                        <span class="lightgray order_detail">enter amt and price</span>
-                        <div><button class="button btn_create" style="flex:1">Create</button></div>
-                    </div>
-                    <div class="select"><select class="input_op" size="1">
-                            <option selected>BUY</option>
-                            <option>SELL</option>
-                        </select></div>
-                    <div class="select"><select class="input_token" size="1">
-                        </select></div>
-                    amt&nbsp;<input placeholder="token amt" class="input token_amt" style="width: 100px">
-                    <div style="height: 1em;"> </div>
-                    &nbsp;@ price range&nbsp;
-                    <input placeholder="price (ETH)" class="input token_price_low" style="width: 100px">
-                    &nbsp;to&nbsp;
-                    <input placeholder="price (ETH)" class="input token_price_high" style="width: 100px">
-                </div>
-
                 <div class="panel order_panel order_modify">
                     <div class="flexbox">
                         <span class="title">Modify order</span>
