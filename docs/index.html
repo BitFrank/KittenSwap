@@ -41,10 +41,6 @@
             font-family: 'JetBrains Mono', Consolas, Menlo, Courier, monospace;
         }
 
-        .navbar_wrap {
-            /* background: inherit !important; */
-        }
-
         .navbar {
             max-width: 70em;
         }
@@ -581,7 +577,14 @@
         }
     </script>
     <style>
-
+        @media screen and (min-width: 1200px) {
+            .navbar a {
+                flex: 1
+            }
+            .navbar p {
+                flex: 5
+            }
+        }
     </style>
 </head>
 
