@@ -443,12 +443,12 @@
             font-size: 120%;
         }
 
-        .btn_trade:disabled {
+        .button:disabled {
             background: #333;
             color: #999;
         }
 
-        .btn_trade:disabled:hover {
+        .button:disabled:hover {
             background: #333;
             color: #999;
         }
@@ -582,6 +582,7 @@
             .navbar a {
                 flex: 1
             }
+
             .navbar p {
                 flex: 5
             }
@@ -602,6 +603,7 @@
         <div id="main-wrap" style="position: relative;">
             <div id="main">
                 <div class="title" id="liquid_title" style="margin: 1em 0;">Buy LIQUID</div>
+                <div class="testnet darkred" style="margin: 0em 0 1em 0; font-size: 250%; font-weight: bold; display: none;">THIS IS FOR ROPSTEN TESTNET</div>
                 <div style="font-size: 110%; margin-bottom: 3em;" class="monospace">Liquidity: <span class="KS_gEthReserve">...</span> ETH + <span class="KS_gTokenReserve">...</span> <span class="liquid">LIQUID</span></div>
                 <div class="order_main panel" style="display: inline-block; padding: 1em; position: relative;">
                     <div style="position: relative;" class="order_line order_input">
@@ -750,9 +752,73 @@
                         <br><br>The liquidity is REAL. Enter a large amount now, and see the small price impact.
                         <br><br>Read our <a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a> for details.
                     </div>
-                    <div class="panel monospace">
+                    <!-- <div class="panel monospace">
                         <div class="title">The Future of <span class="liquid">LIQUID</span></div>
                         The unique design of <span class="liquid">LIQUID</span> enables it for unique use cases. Join our <a href="https://t.me/kitten_finance_group" target="_blank">Telegram</a> and follow our <a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a> for updates.
+                    </div> -->
+                    <div id="liqLending" style="display: none;">
+                        <div class="panel monospace">
+                            <div class="title"><span class="liquid">LIQUID</span> Lending: Live Status</div>
+                            <div>Vault has <span class="lending_free_eth">...</span> free ETH, <span class="lending_locked_liq">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <br>
+                            <div>KittenETH total supply <span class="lending_keth_totalsupply">...</span>, now backed by at least <span class="lending_contract_value">...</span> ETH TVL.</div>
+                        </div>
+                        <div class="panel monospace" task="lending_lock_eth">
+                            <div class="title">Supply ETH to Lending Pool</div>
+                            <div>You have <span class="user_wallet_eth">...</span> ETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <br>
+                            <div style="" class="flexbox">
+                                <span style="margin-right: 1em;">ETH amt:</span>
+                                <input style="margin-right: 1em;" placeholder="0" class="input">
+                                <button style="flex: 1;" class="button">Deposit ETH</button>
+                            </div>
+                            <br>
+                            <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> KittenETH.</div>
+                            <br>KittenETH is yield-bearing. Its price always grow.
+                            <div class="panel_log"></div>
+                        </div>
+                        <div class="panel monospace" task="lending_unlock_eth">
+                            <div class="title">Swap KittenETH back to ETH</div>
+                            <div>You have <span class="user_wallet_keth">...</span> KittenETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <br>
+                            <div style="" class="flexbox">
+                                <span style="margin-right: 1em;">KiETH amt:</span>
+                                <input style="margin-right: 1em;" placeholder="0" class="input">
+                                <button style="flex: 1;" class="button">Swap KiETH</button>
+                            </div>
+                            <br>
+                            <div>You will swap <span class="in_amt">0</span> KittenETH to <span class="out_amt">0</span> ETH.</div>
+                            <div class="panel_log"></div>
+                        </div>
+                        <div class="panel monospace" task="lending_lock_liquid">
+                            <div class="title">Lock <span class="liquid">LIQUID</span> to Borrow ETH</div>
+                            <div>You have <span class="user_wallet_liquid">...</span> <span class="liquid">LIQUID</span> in wallet.</div>
+                            <br>
+                            <div style="" class="flexbox">
+                                <span style="margin-right: 1em;"><span class="liquid">LIQUID</span> amt:</span>
+                                <input style="margin-right: 1em;" placeholder="0" class="input">
+                                <button style="flex: 1;" class="button">Lock LIQUID</button>
+                            </div>
+                            <br>
+                            <div>You will lock <span class="in_amt">0</span> <span class="liquid">LIQUID</span> to borrow <span class="out_amt">0</span> ETH.</div>
+                            <div><br>1 <span class="liquid">LIQUID</span> can borrow <span class="lending_liquid_floor_price">...</span> ETH.</div>
+                            <div class="panel_log"></div>
+                        </div>
+                        <div class="panel monospace" task="lending_unlock_liquid">
+                            <div class="title">Payback ETH to Unlock <span class="liquid">LIQUID</span></div>
+                            <div>You have <span class="user_locked_liquid">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <br>
+                            <div style="" class="flexbox">
+                                <span style="margin-right: 1em;"><span class="liquid">ETH</span> amt:</span>
+                                <input style="margin-right: 1em;" placeholder="0" class="input">
+                                <button style="flex: 1;" class="button">Unlock LIQUID</button>
+                            </div>
+                            <br>
+                            <div>You will payback <span class="in_amt">0</span> ETH to unlock <span class="out_amt">0</span> <span class="liquid">LIQUID</span>. Extra ETH will be returned to you.</div>
+                            <br>
+                            <div>1 <span class="liquid">LIQUID</span> can be unlocked with <span class="lending_liquid_floor_price">...</span> ETH.</div>
+                            <div class="panel_log"></div>
+                        </div>                        
                     </div>
                     <div id="panel_trollbox">
                         <div id="tlkio" data-channel="KittenSwap-trollbox" data-theme="theme--night" data-nickname="anonymous"></div>
@@ -772,7 +838,7 @@
                     <div><a href="https://discord.gg/pMaZswC" target="_blank">Discord</a></div>
                     <div><a href="https://t.me/kitten_finance_group" target="_blank">Telegram (more popular)</a></div>
                     <div><a href="https://twitter.com/KittenFinance" target="_blank">Twitter</a></div>
-                    <div><a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a></div>                    
+                    <div><a href="https://kitten-finance.medium.com/" target="_blank">Medium essays</a></div>
                 </div>
             </div>
         </div>
