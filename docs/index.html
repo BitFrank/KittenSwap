@@ -569,6 +569,10 @@
         option {
             background-color: #000;
         }
+
+        .in_amt, .out_amt {
+            color: #0a0;
+        }
     </style>
     <script>
         document.getElementById('css_advanced').disabled = true
@@ -765,7 +769,7 @@
                         </div>
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title">Supply ETH to Lending Pool</div>
-                            <div>You have <span class="user_wallet_eth">...</span> ETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_eth green">...</span> ETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
@@ -779,7 +783,7 @@
                         </div>
                         <div class="panel monospace" task="lending_unlock_eth">
                             <div class="title">Swap KittenETH back to ETH</div>
-                            <div>You have <span class="user_wallet_keth">...</span> KittenETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_keth green">...</span> KittenETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">KiETH amt:</span>
@@ -788,12 +792,12 @@
                             </div>
                             <br>
                             <div>You will swap <span class="in_amt">0</span> KittenETH to <span class="out_amt">0</span> ETH.</div>
-                            <div>Vault has <span class="lending_free_eth">...</span> free ETH at this moment.</div>
+                            <div>Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
                             <div class="panel_log"></div>
                         </div>
                         <div class="panel monospace" task="lending_lock_liquid">
                             <div class="title">Lock <span class="liquid">LIQUID</span> to Borrow ETH</div>
-                            <div>You have <span class="user_wallet_liquid">...</span> <span class="liquid">LIQUID</span> in wallet.</div>
+                            <div>You have <span class="user_wallet_liquid green">...</span> <span class="liquid">LIQUID</span> in wallet.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;"><span class="liquid">LIQUID</span> amt:</span>
@@ -803,12 +807,12 @@
                             <br>
                             <div>You will lock <span class="in_amt">0</span> <span class="liquid">LIQUID</span> to borrow <span class="out_amt">0</span> ETH.</div>
                             <div><br>1 <span class="liquid">LIQUID</span> can borrow <span class="lending_liquid_floor_price">...</span> ETH.</div>
-                            <div>Vault has <span class="lending_free_eth">...</span> free ETH at this moment.</div>
+                            <div>Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
                             <div class="panel_log"></div>
                         </div>
                         <div class="panel monospace" task="lending_unlock_liquid">
                             <div class="title">Payback ETH to Unlock <span class="liquid">LIQUID</span></div>
-                            <div>You have <span class="user_locked_liquid">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <div>You have <span class="user_locked_liquid green">...</span> locked <span class="liquid">LIQUID</span>.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;"><span class="liquid">ETH</span> amt:</span>
@@ -816,7 +820,7 @@
                                 <button style="flex: 1;" class="button">Unlock LIQUID</button>
                             </div>
                             <br>
-                            <div>You will payback <span class="in_amt">0</span> ETH to unlock <span class="out_amt">0</span> <span class="liquid">LIQUID</span>. Extra ETH will be returned to you.</div>
+                            <div>You will payback <span class="in_amt">0</span> ETH to unlock <span class="out_amt">0</span> <span class="liquid">LIQUID</span>. Feel free to overpay. Unused ETH will be returned to you.</div>
                             <br>
                             <div>1 <span class="liquid">LIQUID</span> can be unlocked with <span class="lending_liquid_floor_price">...</span> ETH.</div>
                             <div class="panel_log"></div>
