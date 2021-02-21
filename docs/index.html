@@ -573,6 +573,15 @@
         .in_amt, .out_amt {
             color: #0a0;
         }
+
+        .amt_hover {
+            padding: 1em 0;
+        }
+
+        .amt_hover:hover {
+            color: red !important;
+            cursor: pointer;
+        }
     </style>
     <script>
         document.getElementById('css_advanced').disabled = true
@@ -769,7 +778,7 @@
                         </div>
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title">Supply ETH to Lending Pool</div>
-                            <div>You have <span class="user_wallet_eth green">...</span> ETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
@@ -783,7 +792,7 @@
                         </div>
                         <div class="panel monospace" task="lending_unlock_eth">
                             <div class="title">Swap KittenETH back to ETH</div>
-                            <div>You have <span class="user_wallet_keth green">...</span> KittenETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_keth green amt_hover">...</span> KittenETH. 1 KiETH = <span class="lending_keth_price">...</span> ETH.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">KiETH amt:</span>
@@ -797,7 +806,7 @@
                         </div>
                         <div class="panel monospace" task="lending_lock_liquid">
                             <div class="title">Lock <span class="liquid">LIQUID</span> to Borrow ETH</div>
-                            <div>You have <span class="user_wallet_liquid green">...</span> <span class="liquid">LIQUID</span> in wallet.</div>
+                            <div>You have <span class="user_wallet_liquid green amt_hover">...</span> <span class="liquid">LIQUID</span> in wallet.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;"><span class="liquid">LIQUID</span> amt:</span>
@@ -812,7 +821,7 @@
                         </div>
                         <div class="panel monospace" task="lending_unlock_liquid">
                             <div class="title">Payback ETH to Unlock <span class="liquid">LIQUID</span></div>
-                            <div>You have <span class="user_locked_liquid green">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="liquid">LIQUID</span>.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
