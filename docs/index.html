@@ -366,18 +366,17 @@
             height: 0;
             position: absolute;
             pointer-events: none;
-
+            top: 0.5em;
+            right: 0em;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            top: 1.1em;
-            right: .5em;
             border-top: 8px solid white;
             opacity: 0.8;
         }
 
-        .order_log .select:after {
-            top: 0.5em;
-            right: 0em;
+        .order_line .select:after {
+            top: 1.1em;
+            right: .5em;
         }
 
         select::-ms-expand {
@@ -570,7 +569,8 @@
             background-color: #000;
         }
 
-        .in_amt, .out_amt {
+        .in_amt,
+        .out_amt {
             color: #0a0;
         }
 
@@ -834,6 +834,123 @@
                             <div>It takes <span class="lending_liquid_floor_price">...</span> ETH to unlock 1 <span class="liquid">LIQUID</span>.</div>
                             <div class="panel_log"></div>
                         </div>
+                        <div class="panel monospace" task="lending_flash_buy">
+                            <div class="title">Flash Borrow -> Buy -> Lock <span class="liquid">LIQUID</span></div>
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH.</div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Input ETH amt:</span>
+                                <input style="flex: 2" placeholder="0" class="input amt_eth_in">
+                            </div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Borrow ETH amt:</span>
+                                <input style="flex: 2" placeholder="0" class="input amt_eth_borrow">
+                            </div>
+                            <div>Vault has <span class="lending_free_eth green amt_hover">...</span> free ETH at this moment.</div>
+                            <div style="margin: 1em 0;">
+                                <span>Buy <span class="liquid">LIQUID</span> slippage tolerance:</span>
+                                <div class="select" dir="rtl">
+                                    <select class="flash_slippage" size="1">
+                                        <option>0.1%</option>
+                                        <option>0.2%</option>
+                                        <option>0.5%</option>
+                                        <option selected>1%</option>
+                                        <option>1.5%</option>
+                                        <option>2%</option>
+                                        <option>3%</option>
+                                        <option>4%</option>
+                                        <option>5%</option>
+                                        <option>7.5%</option>
+                                        <option>10%</option>
+                                        <option>15%</option>
+                                        <option>20%</option>
+                                        <option>30%</option>
+                                        <option>40%</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Lock <span class="liquid">LIQUID</span> amt:</span>
+                                <input style="flex: 2" placeholder="0" value="9999" class="input amt_liquid_lock">
+                            </div>
+                            Enter a large amt to lock all <span class="liquid">LIQUID</span> you bought.
+                            <br><br>
+                            <button style="flex: 1;" class="button btn_flash_buy" disabled>loading...</button>
+                            <br>Flash loan fee: <span class="lending_flashloan_fee_percent">...</span> %
+                            <br>Execution plan, assuming worst price:
+                            <ul>
+                                <li>Borrow <span class="lending_buy_borrow green">0</span> ETH -> Swap <span class="lending_buy_eth green">0</span> ETH for <span class="lending_buy_liq_worst green">...</span> <span class="liquid">LIQUID</span></li>
+                                <li>Lock <span class="lending_buy_lock_worst green">...</span> <span class="liquid">LIQUID</span> for <span class="lending_buy_lock_eth_worst green">...</span> ETH</li>
+                                <li>Payback <span class="lending_buy_borrow_payback green">0</span> ETH (including flash-loan fee)</li>
+                                <li>Receive <span class="lending_buy_out_eth_worst green">...</span> ETH and <span class="lending_buy_out_liquid_worst green">...</span> <span class="liquid">LIQUID</span></li>
+                            </ul>
+                            <br>Execution plan, assuming market price:
+                            <ul>
+                                <li>Borrow <span class="lending_buy_borrow green">0</span> ETH -> Swap <span class="lending_buy_eth green">0</span> ETH for <span class="lending_buy_liq green">...</span> <span class="liquid">LIQUID</span></li>
+                                <li>Lock <span class="lending_buy_lock green">...</span> <span class="liquid">LIQUID</span> for <span class="lending_buy_lock_eth green">...</span> ETH</li>
+                                <li>Payback <span class="lending_buy_borrow_payback green">0</span> ETH (including flash-loan fee)</li>
+                                <li>Receive <span class="lending_buy_out_eth green">...</span> ETH and <span class="lending_buy_out_liquid green">...</span> <span class="liquid">LIQUID</span></li>
+                            </ul>
+                            <div class="panel_log"></div>
+                        </div>
+                        <div class="panel monospace" task="lending_flash_sell">
+                            <div class="title">Flash Borrow -> Unlock -> Sell <span class="liquid">LIQUID</span></div>
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH.</div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Input ETH amt:</span>
+                                <input style="flex: 2" placeholder="0" class="input amt_eth_in">
+                            </div>
+                            <br><div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Unlock <span class="liquid">LIQUID</span> amt:</span>
+                                <input style="flex: 2" placeholder="0" value="" class="input amt_liquid_unlock">
+                            </div>
+                            <div class="flexbox">
+                                <span style="flex:1.2">Sell <span class="liquid">LIQUID</span> amt:</span>
+                                <input style="flex: 2" placeholder="0" value="" class="input amt_liquid_sell">
+                            </div>
+                            Enter a large amt to sell all unlocked <span class="liquid">LIQUID</span>.
+                            <div style="margin: 1em 0;">
+                                <span>Sell <span class="liquid">LIQUID</span> slippage tolerance:</span>
+                                <div class="select" dir="rtl">
+                                    <select class="flash_slippage" size="1">
+                                        <option>0.1%</option>
+                                        <option>0.2%</option>
+                                        <option>0.5%</option>
+                                        <option selected>1%</option>
+                                        <option>1.5%</option>
+                                        <option>2%</option>
+                                        <option>3%</option>
+                                        <option>4%</option>
+                                        <option>5%</option>
+                                        <option>7.5%</option>
+                                        <option>10%</option>
+                                        <option>15%</option>
+                                        <option>20%</option>
+                                        <option>30%</option>
+                                        <option>40%</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button style="flex: 1;" class="button btn_flash_sell" disabled>loading...</button>
+                            <br>Flash loan fee: <span class="lending_flashloan_fee_percent">...</span> %
+                            <br>Execution plan, assuming worst price:
+                            <ul>
+                                <li>Borrow <span class="lending_unlock_borrow green">...</span> ETH</li>
+                                <li>Use <span class="lending_unlock_eth green">...</span> ETH to unlock <span class="lending_unlock_liq green">...</span> <span class="liquid">LIQUID</span></li>
+                                <li>Swap <span class="lending_sell_liq green">...</span> <span class="liquid">LIQUID</span> for <span class="lending_sell_eth_worst green">...</span> ETH</li>
+                                <li>Payback <span class="lending_sell_borrow_payback green">...</span> ETH (including flash-loan fee)</li>
+                                <li>Receive <span class="lending_sell_out_eth_worst green">...</span> ETH and <span class="lending_sell_out_liquid green">...</span> <span class="liquid">LIQUID</span></li>
+                            </ul>
+                            <br>Execution plan, assuming market price:
+                            <ul>
+                                <li>Borrow <span class="lending_unlock_borrow green">...</span> ETH</li>
+                                <li>Use <span class="lending_unlock_eth green">...</span> ETH to unlock <span class="lending_unlock_liq green">...</span> <span class="liquid">LIQUID</span></li>
+                                <li>Swap <span class="lending_sell_liq green">...</span> <span class="liquid">LIQUID</span> for <span class="lending_sell_eth green">...</span> ETH</li>
+                                <li>Payback <span class="lending_sell_borrow_payback green">...</span> ETH (including flash-loan fee)</li>
+                                <li>Receive <span class="lending_sell_out_eth green">...</span> ETH and <span class="lending_sell_out_liquid green">...</span> <span class="liquid">LIQUID</span></li>
+                            </ul>
+                            <div class="panel_log"></div>
+                        </div>                        
                     </div>
                     <div id="panel_trollbox">
                         <div id="tlkio" data-channel="KittenSwap-trollbox" data-theme="theme--night" data-nickname="anonymous"></div>
