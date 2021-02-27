@@ -593,6 +593,7 @@
         .title_main {
             font-size: 150%;
         }
+
         .title_small {
             margin-top: -1em;
             color: #888 !important;
@@ -630,7 +631,10 @@
         </div>
         <div id="main-wrap" style="position: relative;">
             <div id="main">
-                <div class="title" id="liquid_title" style="margin: 1em 0;">Buy LIQUID</div>
+                <div style="margin: 0.5em 0 3em 0; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/liquid_logo.svg" style="width: 25%; margin-right: 1.5em;" />
+                    <div class="title" id="liquid_title" style="">LIQUID</div>
+                </div>
                 <div class="testnet darkred" style="margin: 0em 0 1em 0; font-size: 250%; font-weight: bold; display: none;">THIS IS FOR ROPSTEN TESTNET</div>
                 <div style="font-size: 110%; margin-bottom: 3em;" class="monospace">Liquidity: <span class="KS_gEthReserve">...</span> ETH + <span class="KS_gTokenReserve">...</span> <span class="liquid">LIQUID</span></div>
                 <div class="order_main panel" style="display: inline-block; padding: 1em; position: relative;">
@@ -746,7 +750,7 @@
                         <!-- <br><br>Please do your own research before purchasing LIQUID. -->
                         <br><br>
                         <div class="darkred">Use at your own risk, and don't trade more than you are willing to lose.</div>
-                    </div>                    
+                    </div>
                     <div class="panel monospace">
                         <div class="title">Collect TX fee, without IL risk</div>
                         <span class="liquid">LIQUID</span> is deflationary. The supply always decreases.
@@ -810,7 +814,8 @@
                             </div>
                             <br>
                             <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> KittenETH.</div>
-                            <br><div>You are supplying ETH to the lending pool.</div>
+                            <br>
+                            <div>You are supplying ETH to the lending pool.</div>
                             <div>KittenETH is yield-bearing. Its price always grow.</div>
                             <div class="panel_log"></div>
                         </div>
@@ -924,7 +929,8 @@
                                 <span style="flex:1.2">Input ETH amt:</span>
                                 <input style="flex: 2" placeholder="0" class="input amt_eth_in">
                             </div>
-                            <br><div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="liquid">LIQUID</span>.</div>
+                            <br>
+                            <div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="liquid">LIQUID</span>.</div>
                             <div class="flexbox">
                                 <span style="flex:1.2">Unlock <span class="liquid">LIQUID</span> amt:</span>
                                 <input style="flex: 2" placeholder="0" value="" class="input amt_liquid_unlock">
@@ -975,7 +981,7 @@
                                 <li>Receive <span class="lending_sell_out_eth green">...</span> ETH and <span class="lending_sell_out_liquid green">...</span> <span class="liquid">LIQUID</span></li>
                             </ul>
                             <div class="panel_log"></div>
-                        </div>                        
+                        </div>
                     </div>
                     <div id="panel_trollbox">
                         <div id="tlkio" data-channel="KittenSwap-trollbox" data-theme="theme--night" data-nickname="anonymous"></div>
