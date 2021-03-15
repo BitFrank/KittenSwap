@@ -590,6 +590,10 @@
             text-decoration: underline;
             cursor: pointer;
         }
+
+        .panel_select a {
+            padding: 1em 0;
+        }
     </style>
     <style>
         @media screen and (min-width: 1200px) {
@@ -623,8 +627,6 @@
                     <div class="vault_list_info _loading">reading vaults...</div>
                     <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
                     <div class="vault_list"></div>
-                    <br><div>Note scammers can create fake tokens with the same name as well-known tokens. <span class="darkred">ALWAYS CHECK</span> whether the token is a fake one. A real token will have a price and lots of txs in Etherscan.</div>
-                    <br><div>Avoid vaults of rebasing or deflationary tokens too.</div>
                 </div>
                 <div class="panel monospace wait_for_load" task="">
                     <div class="title title_main">Deposit ETH to Earn Yields</div>
@@ -633,14 +635,24 @@
                 </div>                
                 <div class="panel monospace wait_for_load" task="">
                     <div class="title title_main">Lock token to Borrow ETH</div>
-                    <div class="title title_small">Payback ETH to Unlock token</div>
+                    <div class="title title_small">Payback ETH to unlock token</div>
                     <div>Please click on a vault above (after they are loaded) to show all lending functions.</div>
-                </div>                
-                <div id="info" style="display: none;">
+                </div>    
+                <div id="info" style="min-height: 100em; display: none;">
                     <div class="panel monospace">
-                        <div class="title title_main">Vault <span class="currVault">...</span> Live Status</div>
+                        <div class="title title_main">Vault <span class="currVault">...</span> Status</div>
                         <div>Vault has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currToken">...</span>.</div>
-                    </div>                    
+                        <br><div>Note scammers can create fake tokens with the same name as well-known tokens. <span class="darkred">ALWAYS CHECK</span> whether the token is a fake one. A real token will have a price and lots of txs in Etherscan.</div>
+                        <br><div>Avoid vaults of rebasing or deflationary tokens too.</div>    
+                    </div>
+                    <div class="panel monospace panel_select">
+                        <div class="title title_main">Select Functions</div>
+                        Lender&nbsp;&nbsp;: <a go="lending_lock_eth">[Deposit ETH]</a> <a go="lending_unlock_eth">[Redeem ETH]</a> <a go="lending_exitShare">[Exit Vault]</a>
+                        <br><br>
+                        Borrower: <a go="lending_lock_liquid">[Lock <span class="currTokenShort">...</span>]</a> <a go="lending_unlock_liquid">[Unlock <span class="currTokenShort">...</span>]</a>
+                        <br><br>
+                        Everyone: <a go="create_vault">[Create Vault]</a>
+                    </div>    
                     <div class="panel monospace" task="lending_lock_eth">
                         <div class="title title_main">Deposit ETH to Earn Yields</div>
                         <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
@@ -697,7 +709,7 @@
                         <div class="panel_log"></div>
                     </div>
                     <div class="panel monospace" task="lending_unlock_liquid">
-                        <div class="title title_main">Payback ETH to Unlock <span class="currTokenShort">...</span></div>
+                        <div class="title title_main">Payback ETH to unlock <span class="currTokenShort">...</span></div>
                         <div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="currTokenShort">...</span>.</div>
                         <br>
                         <div style="" class="flexbox">
@@ -718,33 +730,32 @@
                         <br><button style="flex: 1;" class="button">Exit vault</button>
                         <br><div>You can only call this after <span class="curr_tEnd green">...</span>.</div>
                         <div class="panel_log"></div>
-                    </div>                    
-                </div>        
-                
-                <div class="panel monospace" task="create_vault">
-                    <div class="title title_main">Create Lending Vault</div>
-                    You can create lending vault for most ERC20 tokens here (avoid rebasing or deflationary tokens).
-                    <br><br>
-                    <div class="flexbox">
-                        <span style="flex:1.3">Token addr:</span>
-                        <input style="flex: 2" placeholder="0x????????????????????????????????????????" class="input create_token_addr">
                     </div>
-                    <br><div class="flexbox">
-                        <span style="flex:1.3">Expiration price (in ETH):</span>
-                        <input style="flex: 2" placeholder="must > 0" class="input create_price_eth">
-                    </div>
-                    <br><div class="flexbox">
-                        <span style="flex:1.3">Expiration time (UNIX timestamp):</span>
-                        <input style="flex: 2" placeholder="16xxxxxxxx" class="input create_tEnd">
-                    </div>                        
-                    <br><div class="flexbox">
-                        <span style="flex:1.3">APY%<br>(0.01 to 655.35):</span>
-                        <input style="flex: 2" placeholder="xx.xx" class="input create_apy">
-                    </div>                        
-                    <br>
-                    <button style="flex: 1;" class="button">Create Vault (will ask you to confirm)</button>
-                    <div class="panel_log"></div>
-                </div>                     
+                    <div class="panel monospace" task="create_vault">
+                        <div class="title title_main">Create Lending Vault</div>
+                        You can create lending vault for most ERC20 tokens here (avoid rebasing or deflationary tokens).
+                        <br><br>
+                        <div class="flexbox">
+                            <span style="flex:1.3">Token addr:</span>
+                            <input style="flex: 2" placeholder="0x????????????????????????????????????????" class="input create_token_addr">
+                        </div>
+                        <br><div class="flexbox">
+                            <span style="flex:1.3">Expiration price (in ETH):</span>
+                            <input style="flex: 2" placeholder="must > 0" class="input create_price_eth">
+                        </div>
+                        <br><div class="flexbox">
+                            <span style="flex:1.3">Expiration time (UNIX timestamp):</span>
+                            <input style="flex: 2" placeholder="16xxxxxxxx" class="input create_tEnd">
+                        </div>                        
+                        <br><div class="flexbox">
+                            <span style="flex:1.3">APY%<br>(0.01 to 655.35):</span>
+                            <input style="flex: 2" placeholder="xx.xx" class="input create_apy">
+                        </div>                        
+                        <br>
+                        <button style="flex: 1;" class="button">Create Vault (will ask you to confirm)</button>
+                        <div class="panel_log"></div>
+                    </div>                                       
+                </div>                          
             </div>
         </div>
         <div id="footer">
