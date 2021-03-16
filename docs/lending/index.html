@@ -631,12 +631,6 @@
                 <div id="log" class="monospace" style="display: inline-block; margin-bottom: 5em;"></div>
                 <div style="display: flex;">
                     <div id="nav">
-                        <div class="panel monospace">
-                            <div class="title title_main">Select Lending Vault</div>
-                            <div class="vault_list_info _loading">loading vaults...</div>
-                            <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
-                            <div class="vault_list"></div>
-                        </div>
                         <div class="panel monospace panel_select" style="display: none;">
                             <div class="title title_main">Select Functions</div>
                             Lender&nbsp;&nbsp;: <a go="lending_lock_eth">[Deposit ETH]</a> <a go="lending_unlock_eth">[Redeem ETH]</a> <a go="lending_exitShare">[Exit Vault]</a>
@@ -644,6 +638,12 @@
                             Borrower: <a go="lending_lock_liquid">[Lock <span class="currTokenShort">...</span>]</a> <a go="lending_unlock_liquid">[Unlock <span class="currTokenShort">...</span>]</a>
                             <br><br>
                             Everyone: <a go="create_vault">[Create Vault]</a>
+                        </div>                        
+                        <div class="panel monospace">
+                            <div class="title title_main">Select Lending Vault</div>
+                            <div class="vault_list_info _loading">loading vaults...</div>
+                            <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
+                            <div class="vault_list"></div>
                         </div>
                         <div class="panel monospace wait_for_load" task="">
                             <div class="title title_main">Deposit ETH to Earn Yields</div>
