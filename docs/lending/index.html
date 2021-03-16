@@ -742,11 +742,11 @@
                         <div class="panel monospace" task="lending_exitShare">
                             <div class="title title_main">Exit Vault after Expiration</div>
                             <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div>
-                            <div>You will swap all your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
+                            <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
                             <br><button style="flex: 1;" class="button">Exit vault</button>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You can only call this after <span class="curr_tEnd green">...</span>.</div>
+                            <div>You can only call this after vault expiration: <span class="curr_tEnd green">...</span>.</div>
                         </div>
                         <div class="panel monospace" task="create_vault">
                             <div class="title title_main">Create Lending Vault</div>
@@ -780,6 +780,9 @@
                 </div>
             </div>
         </div>
+        <div class="panel" style="width:90%; margin:0 auto;">
+            <img src="img/lending-help.png" style="width: 100%;">
+        </div><br><br>
         <div id="footer">
             <br>
             <!-- <div style="text-align: center;" class="lightgray">
