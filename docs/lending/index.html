@@ -592,7 +592,14 @@
         }
 
         .panel_select a {
-            padding: 1em 0;
+            padding: 0.5em 0.5em;
+            margin-right: 0.5em;
+            border: 1px solid #333;
+            border-radius: 0.5em;
+        }
+        .panel_select a:hover {
+            color: #0c0 !important;
+            border: 1px solid #0c0;
         }
 
         .force_gray, .force_gray .green, .force_gray .darkred {
@@ -632,12 +639,13 @@
                 <div style="display: flex;">
                     <div id="nav">
                         <div class="panel monospace panel_select" style="display: none;">
+                            <div style="height: 1em;"> </div>
                             <div class="title title_main">Select Function</div>
-                            Lender&nbsp;&nbsp;: <a go="lending_lock_eth">[Deposit ETH]</a> <a go="lending_unlock_eth">[Redeem ETH]</a> <a go="lending_exitShare">[Exit Vault]</a>
-                            <br><br>
-                            Borrower: <a go="lending_lock_liquid">[Lock <span class="currTokenShort">...</span>]</a> <a go="lending_unlock_liquid">[Unlock <span class="currTokenShort">...</span>]</a>
-                            <br><br>
-                            Everyone: <a go="create_vault">[Create Vault]</a>
+                            Lender: <a go="lending_lock_eth">Deposit ETH</a><a go="lending_unlock_eth">Redeem ETH</a><a go="lending_exitShare">Exit Vault</a>
+                            <div style="height: 2.5em;"> </div>
+                            Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
+                            <div style="height: 2.5em;"> </div>
+                            Everyone: <a go="create_vault">Create Vault</a>
                         </div>                        
                         <div class="panel monospace">
                             <div class="title title_main">Select Vault</div>
@@ -661,7 +669,7 @@
                             <div class="title title_main">Vault <span class="currVault">...</span> Status</div>
                             <div>Vault <span class="currVault">...</span> has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
-                            <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it.</div>
+                            <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it (before expiration).</div>
                             <br>
                             <div>Note scammers can create fake tokens with the same name as well-known tokens. <span class="darkred">ALWAYS CHECK</span> whether the token is a fake one. A real token will have lots of txs and a price on the Etherscan page.</div>
                             <br>
