@@ -586,20 +586,31 @@
             display: none;
         }
 
-        .vault_select:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
         .panel_select a {
             padding: 0.5em 0.5em;
             margin-right: 0.5em;
             border: 1px solid #333;
             border-radius: 0.5em;
         }
-        .panel_select a:hover {
+        .panel_select a:hover, .panel_select a.selected {
             color: #0c0 !important;
             border: 1px solid #0c0;
+        }
+
+        .vault_first_line {
+            border-top: 1px solid #222;
+        }
+        .vault_select {            
+            padding: 1em 1em;
+            border-bottom: 1px solid #222;
+            border-top: 1px solid rgba(0,0,0,0);
+            border-left: 1px solid rgba(0,0,0,0);
+            border-right: 1px solid rgba(0,0,0,0);
+        }
+        .vault_select:hover, .vault_select.selected {
+            cursor: pointer;
+            border: 1px solid #0c0;
+            border-radius: 1em;
         }
 
         .force_gray, .force_gray .green, .force_gray .darkred {
@@ -647,7 +658,7 @@
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create Vault</a>
                         </div>                        
-                        <div class="panel monospace">
+                        <div class="panel monospace panel_vault">
                             <div class="title title_main">Select Vault</div>
                             <div class="vault_list_info _loading">loading vaults...</div>
                             <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
@@ -692,7 +703,7 @@
                             <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH at <span class="curr_tEnd green">...</span>, then you get <span class="curr_apy green">...%</span> APY in ETH (if people use this vault to borrow ETH from you).
                             <br><br>If <span class="currTokenShort">...</span> tank below <span class="currPriceEnd">...</span> ETH at expiration, you receive <span class="currTokenShort">...</span> at the price, which can be a loss.</div>
                             <br>
-                            <div><a class="a_token_check darkred">Always click here to [Check Token]</a> for EVERY vault. Or your ETH will be taken by fake tokens of scammers. Avoid vaults of rebasing or deflationary tokens too.</div>
+                            <div><a class="a_token_check darkred">ALWAYS click here to [Check Token]</a> before depositing. Or your ETH will be taken by fake tokens of scammers. Avoid vaults of rebasing or deflationary tokens too.</div>
                             <br>
                             <div class="gray">Don't simply pick the vault with the highest APY%, because if the APY% is too high, no one will lock <span class="currTokenShort">...</span> in the vault to borrow ETH at that APY% from you, and then you won't get the APY%.</div>
                             <br>
@@ -788,7 +799,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel" style="width:90%; margin:0 auto;">
+        <div class="panel" style="width:90%; margin:0 auto; max-width: 1500px;">
             <img src="img/lending-help.png" style="width: 100%;">
         </div><br><br>
         <div id="footer">
