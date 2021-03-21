@@ -645,8 +645,9 @@
         </div>
         <div id="main-wrap" style="position: relative;">
             <div id="main">
-                <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em; margin: 2em 0 0.5em 0;">KittenSwap Lending (Testnet)</div>
+                <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em; margin: 2em 0 0.5em 0;">KittenSwap Lending</div>
                 <div id="log" class="monospace" style="display: inline-block; margin-bottom: 5em;"></div>
+                <div style="font-size: 200%; font-weight: bold; margin-bottom: 2em;" class="darkred">!!! PLEASE TEST WITH TINY AMTS OF ETH & TOKEN !!!</div>
                 <div style="display: flex;">
                     <div id="nav">
                         <div class="panel monospace panel_select" style="display: none;">
@@ -656,7 +657,7 @@
                             <div style="height: 2.5em;"> </div>
                             Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
                             <div style="height: 2.5em;"> </div>
-                            Everyone: <a go="create_vault">Create Vault</a>
+                            Everyone: <a go="create_vault">Create New Vault</a>
                         </div>                        
                         <div class="panel monospace panel_vault">
                             <div class="title title_main">Select Vault</div>
@@ -788,12 +789,14 @@
                             </div>
                             <br>
                             <div class="flexbox">
-                                <span style="flex:1.3">APY%<br>(0.01 to 655.35):</span>
-                                <input style="flex: 2" placeholder="xx.xx" class="input create_apy">
+                                <span style="flex:1.3">APY%<br>(two decimals):</span>
+                                <input style="flex: 2" placeholder="xxx.xx" class="input create_apy">
                             </div>
                             <br>
                             <button style="flex: 1;" class="button">Create Vault (will ask you to confirm)</button>
                             <div class="panel_log"></div>
+                            <br>
+                            <div>Enter reasonable expiration price + date + APY%, so that both lenders and borrowers will use your vault.</div>
                         </div>
                     </div>
                 </div>
