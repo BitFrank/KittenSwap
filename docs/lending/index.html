@@ -599,16 +599,16 @@
             border: 1px solid #0c0;
         }
 
-        .vault_first_line {
+        /* .vault_first_line {
             border-top: 1px solid #222;
-        }
+        } */
 
         .vault_select {
             display: flex;
             align-items: center;
 
             padding: 1em 0em 1em 0.5em;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(0, 0, 0, 0);
             border-top: 1px solid rgba(0, 0, 0, 0);
             border-left: 1px solid rgba(0, 0, 0, 0);
             border-right: 1px solid rgba(0, 0, 0, 0);
@@ -642,14 +642,17 @@
         .token_list {
             line-height: 2.5;
         }
+
         .token_list div {
             display: flex;
             align-items: center;
         }
+
         .token_list div:hover {
             cursor: pointer;
             color: #0c0;
         }
+
         .token_list .token_icon_wrap {
             margin-right: 1em;
             width: 30px;
@@ -657,6 +660,7 @@
             display: flex;
             align-items: center;
         }
+
         .token_list .token_icon_wrap img {
             max-width: 100%;
             max-height: 100%;
@@ -692,15 +696,6 @@
                 <!-- <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div> -->
                 <div style="display: flex;">
                     <div id="nav">
-                        <div class="panel monospace panel_select" style="display: none;">
-                            <!-- <div class="title title_main">Vault <span class="currVault">...</span> Function</div> -->
-                            <div style="height: 0.5em;"> </div>
-                            Lender: <a go="lending_lock_eth">Deposit ETH</a><a go="lending_unlock_eth">Redeem ETH</a><a go="lending_exitShare">Exit Vault</a>
-                            <div style="height: 2.5em;"> </div>
-                            Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
-                            <div style="height: 2.5em;"> </div>
-                            Everyone: <a go="create_vault">Create New Vault</a>
-                        </div>
                         <div class="panel monospace panel_vault">
                             <!-- <div class="title title_main">Select Vault</div> -->
                             <div class="vault_list_info _loading">loading vaults...</div>
@@ -725,12 +720,18 @@
                         </div>
                     </div>
                     <div id="info" style="display: none; margin-left: 1em; min-height: 80em;">
-                        <div class="panel monospace">
+                        <div class="panel monospace panel_select" style="display: none;">
                             <div class="title title_main">Vault <span class="currVault">...</span> Status</div>
                             <div>Vault <span class="currVault">...</span> has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
                             <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it (before expiration).</div>
-                        </div>
+                            <div style="height: 2.5em;"> </div>
+                            Lender: <a go="lending_lock_eth">Deposit ETH</a><a go="lending_unlock_eth">Redeem ETH</a><a go="lending_exitShare">Exit Vault</a>
+                            <div style="height: 2.5em;"> </div>
+                            Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
+                            <div style="height: 2.5em;"> </div>
+                            Everyone: <a go="create_vault">Create New Vault</a>
+                        </div>                        
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title title_main">Deposit ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
