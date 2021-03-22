@@ -592,7 +592,9 @@
             border: 1px solid #333;
             border-radius: 0.5em;
         }
-        .panel_select a:hover, .panel_select a.selected {
+
+        .panel_select a:hover,
+        .panel_select a.selected {
             color: #0c0 !important;
             border: 1px solid #0c0;
         }
@@ -600,24 +602,39 @@
         .vault_first_line {
             border-top: 1px solid #222;
         }
-        .vault_select {            
-            padding: 1em 1em;
+
+        .vault_select {
+            display: flex;
+            align-items: center;
+            align-content: center;
+
+            padding: 1em 0em 1em 0.5em;
             border-bottom: 1px solid #222;
-            border-top: 1px solid rgba(0,0,0,0);
-            border-left: 1px solid rgba(0,0,0,0);
-            border-right: 1px solid rgba(0,0,0,0);
+            border-top: 1px solid rgba(0, 0, 0, 0);
+            border-left: 1px solid rgba(0, 0, 0, 0);
+            border-right: 1px solid rgba(0, 0, 0, 0);
         }
-        .vault_select:hover, .vault_select.selected {
+
+        .vault_select:hover,
+        .vault_select.selected {
             cursor: pointer;
             border: 1px solid #0c0;
             border-radius: 1em;
         }
 
-        .force_gray, .force_gray .green, .force_gray .darkred {
+        .force_gray,
+        .force_gray .green,
+        .force_gray .darkred {
             color: #666 !important;
         }
+
         .green_green {
             color: #0a0 !important;
+        }
+
+        .token_list p:hover {
+            cursor: pointer;
+            color: #0c0;
         }
     </style>
     <style>
@@ -647,7 +664,7 @@
             <div id="main">
                 <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em; margin: 2em 0 0.5em 0;">KittenSwap Lending</div>
                 <div id="log" class="monospace" style="display: inline-block; margin-bottom: 5em;"></div>
-                <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div>
+                <!-- <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div> -->
                 <div style="display: flex;">
                     <div id="nav">
                         <div class="panel monospace panel_select" style="display: none;">
@@ -658,7 +675,7 @@
                             Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create New Vault</a>
-                        </div>                        
+                        </div>
                         <div class="panel monospace panel_vault">
                             <div class="title title_main">Select Vault</div>
                             <div class="vault_list_info _loading">loading vaults...</div>
@@ -680,7 +697,7 @@
                             The lending <a class="lending_contract green" href='https://etherscan.io/address/0xcac6f6711206215d9761f7b82936f2083964dff5' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs.
                             <br><br>
                             <div>Use at your own risk, and don't trade more than you are willing to lose.</div>
-                        </div>    
+                        </div>
                     </div>
                     <div id="info" style="display: none; margin-left: 1em; min-height: 80em;">
                         <div class="panel monospace">
@@ -710,7 +727,7 @@
                             <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> vShare (vault <span class="currVault">...</span>).</div>
                             <br>
                             <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH at <span class="curr_tEnd green">...</span>, then you get <span class="curr_apy green">...%</span> APY in ETH (if people use this vault to borrow ETH from you).
-                            <br><br>If <span class="currTokenShort">...</span> tank below <span class="currPriceEnd">...</span> ETH at expiration, you receive <span class="currTokenShort">...</span> at the price, which can be a loss.</div>
+                                <br><br>If <span class="currTokenShort">...</span> tank below <span class="currPriceEnd">...</span> ETH at expiration, you receive <span class="currTokenShort">...</span> at the price, which can be a loss.</div>
                             <br>
                             <div class="gray">Don't simply pick the vault with the highest APY%, because if the APY% is too high, no one will lock <span class="currTokenShort">...</span> in the vault to borrow ETH at that APY% from you, and then you won't get the APY%.</div>
                             <br>
@@ -804,6 +821,11 @@
                             <br>
                             <div>Enter reasonable expiration price + date + APY%, so that both lenders and borrowers will use your vault.</div>
                         </div>
+                        <div class="panel monospace token_list_panel" style="display: none;">
+                            <div class="title title_main">Token List</div>
+                            <div class="token_list" style="line-height: 2.5;">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -831,6 +853,23 @@
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/ethers-5.0.umd.min.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
+    <script>
+        var TOKEN_VERIFY =
+            `KIF 0x177BA0cac51bFC7eA24BAd39d81dcEFd59d74fAa
+DEX 0x3516415161C478DF10ADBb8bb884Cc83FbD5F11a
+LIQUID 0xc618d56b6d606e59c6b87af724ab5a91eb40d1cb
+
+DAI 0x6B175474E89094C44Da98b954EedeAC495271d0F
+USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+WBTC 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599
+
+DOKI 0x9cEB84f92A0561fa3Cc4132aB9c0b76A59787544
+MASK 0x69af81e73A73B40adF4f3d4223Cd9b1ECE623074
+MTA 0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2
+OCTO 0x7240aC91f01233BaAf8b064248E80feaA5912BA3
+ROOK 0xfA5047c9c78B8877af97BDcb85Db743fD7313d4a
+SIREN 0xD23Ac27148aF6A2f339BD82D0e3CFF380b5093de`
+    </script>
     <script type="text/javascript" src="index.js"></script>
     <script>
         var clicky_site_ids = clicky_site_ids || [];
