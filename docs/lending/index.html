@@ -639,9 +639,11 @@
         #vault_table {
             line-height: 1.0;
         }
+
         #vault_table td {
             border-top: 0px;
         }
+
         .token_icon_wrap_x {
             display: flex;
             align-items: center;
@@ -754,13 +756,15 @@
                             Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create New Vault</a>
-                        </div>                        
+                        </div>
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title title_main">Lock ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
                             <div class="token_not_verified_txt">This token is unverified. <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing, because scammers can create fake tokens with any name. A real token will have lots of txs and a price on Etherscan. Avoid rebasing or deflationary tokens too.</div>
                             <br>
-                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH in wallet.<!-- 1 vShare = <span class="lending_keth_price green">...</span> ETH.--></div>
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH in wallet.
+                                <!-- 1 vShare = <span class="lending_keth_price green">...</span> ETH.-->
+                            </div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
@@ -773,7 +777,10 @@
                             <!-- <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> vShare (vault <span class="currVault">...</span>).</div>
                             <br> -->
                             <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH at <span class="curr_tEnd green">...</span>, you get <span class="curr_apy green">...%</span> APY in ETH (if people use this vault to borrow ETH from you).
-                                <br><br>If <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH at expiry, you receive <span class="currTokenShort">...</span> at the price instead.</div>
+                                <br><br>If <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH at expiry, you receive <span class="currTokenShort">...</span> at the price instead.
+                                <br><br>Moreover, You can unlock your ETH if there are no borrowers, or if there is free ETH in vault.
+                            </div>
+
                             <!-- <br>
                             <div class="gray">Don't simply pick the vault with the highest APY%, because if the APY% is too high, no one will lock <span class="currTokenShort">...</span> in the vault to borrow ETH at that APY% from you, and then you won't get the APY%.</div> -->
                             <!-- <br>
