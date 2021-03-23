@@ -744,12 +744,12 @@
                             <div>Use at your own risk, and don't trade more than you are willing to lose.</div>
                         </div>
                     </div>
-                    <div id="info" style="display: none; margin-left: 1em; min-height: 70em;">
+                    <div id="info" style="display: none; margin-left: 1em; min-height: 60em;">
                         <div class="panel monospace panel_select" style="display: none;">
                             <!-- <div class="title title_main">Vault <span class="currVault">...</span> Status</div> -->
                             <div>Vault <span class="currVault">...</span> has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
-                            <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it.</div>
+                            <div>You have <span class="user_wallet_keth green">...</span> vaultShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> here.</div>
                             <div style="height: 2.5em;"> </div>
                             Lender: <a go="lending_lock_eth">Lock ETH</a><a go="lending_unlock_eth">Unlock ETH</a><a go="lending_exitShare">Exit Vault</a>
                             <div style="height: 2.5em;"> </div>
@@ -759,7 +759,7 @@
                         </div>
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title title_main">Lock ETH to Earn Yields</div>
-                            <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
+                            <!-- <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div> -->
                             <div class="token_not_verified_txt">This token is unverified. <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing, because scammers can create fake tokens with any name. A real token will have lots of txs and a price on Etherscan. Avoid rebasing or deflationary tokens too.<br><br></div>
                             <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH in wallet.
                                 <!-- 1 vShare = <span class="lending_keth_price green">...</span> ETH.-->
@@ -787,8 +787,8 @@
                         </div>
                         <div class="panel monospace" task="lending_unlock_eth">
                             <div class="title title_main">Unlock ETH from Vault</div>
-                            <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to ETH</div>
-                            <div>You have <span class="user_wallet_keth green amt_hover">...</span> vShare (vault <span class="currVault">...</span>). 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
+                            <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to ETH</div> -->
+                            <div>You have <span class="user_wallet_keth green amt_hover">...</span> vaultShare. 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">vShare amt:</span>
@@ -797,8 +797,7 @@
                             </div>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You will swap <span class="in_amt">0</span> vShare to <span class="out_amt">0</span> ETH.</div>
-                            <div>Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
+                            <div>You will swap <span class="in_amt">0</span> vShare to <span class="out_amt">0</span> ETH. Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
                         </div>
                         <div class="panel monospace" task="lending_lock_liquid">
                             <div class="title title_main">Lock <span class="currTokenShort">...</span> to Borrow ETH</div>
@@ -837,12 +836,12 @@
                         </div>
                         <div class="panel monospace" task="lending_exitShare">
                             <div class="title title_main">Exit Vault after expiry</div>
-                            <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div>
+                            <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div> -->
                             <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
                             <br><button style="flex: 1;" class="button">Exit vault</button>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You can only call this after vault expiry: <span class="curr_tEnd green">...</span>.</div>
+                            <div>You can only call this after vault expiry: <span class="curr_tEnd curr_tEnd_long green">...</span>.</div>
                         </div>
                         <div class="panel monospace" task="create_vault">
                             <div class="title title_main">Create Lending Vault</div>
