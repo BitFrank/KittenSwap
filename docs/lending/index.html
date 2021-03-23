@@ -602,7 +602,7 @@
         .force_gray,
         .force_gray .green,
         .force_gray .darkred {
-            color: #666 !important;
+            color: #777 !important;
         }
 
         .green_green {
@@ -636,12 +636,20 @@
             max-height: 100%;
         }
 
+        #vault_table {
+            line-height: 1.0;
+        }
         #vault_table td {
             border-top: 0px;
         }
         .token_icon_wrap_x {
             display: flex;
             align-items: center;
+            justify-content: start;
+        }
+
+        .vault_select {
+            color: #bbb;
         }
 
         .vault_select .token_icon_wrap {
@@ -704,11 +712,12 @@
                             <table id="vault_table" style="width:100%; display: none;">
                                 <thead>
                                     <tr>
-                                        <th>asset</th>
-                                        <th>borrow<br>price</th>
+                                        <th>token</th>
+                                        <th>borrow<br>price ETH</th>
                                         <th>apy%</th>
-                                        <th>expiration</th>
+                                        <th>duration<br>days</th>
                                         <th>free<br>ETH</th>
+                                        <th>your<br>asset</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -749,7 +758,7 @@
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title title_main">Lock ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
-                            <div>Because scammers can create fake tokens with the same name as well-known tokens, <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing. A real token will have lots of txs and a price on the Etherscan page. Avoid vaults of rebasing or deflationary tokens too.</div>
+                            <div>Because scammers can create fake tokens with any name, <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing. A real token will have lots of txs and a price on the Etherscan page. Avoid vaults of rebasing or deflationary tokens too.</div>
                             <br>
                             <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH. 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
                             <br>
