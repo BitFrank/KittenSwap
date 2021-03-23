@@ -742,12 +742,12 @@
                             <div>Use at your own risk, and don't trade more than you are willing to lose.</div>
                         </div>
                     </div>
-                    <div id="info" style="display: none; margin-left: 1em; min-height: 80em;">
+                    <div id="info" style="display: none; margin-left: 1em; min-height: 70em;">
                         <div class="panel monospace panel_select" style="display: none;">
                             <!-- <div class="title title_main">Vault <span class="currVault">...</span> Status</div> -->
                             <div>Vault <span class="currVault">...</span> has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
-                            <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it (before expiration).</div>
+                            <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it.</div>
                             <div style="height: 2.5em;"> </div>
                             Lender: <a go="lending_lock_eth">Lock ETH</a><a go="lending_unlock_eth">Unlock ETH</a><a go="lending_exitShare">Exit Vault</a>
                             <div style="height: 2.5em;"> </div>
@@ -758,9 +758,9 @@
                         <div class="panel monospace" task="lending_lock_eth">
                             <div class="title title_main">Lock ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
-                            <div>Because scammers can create fake tokens with any name, <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing. A real token will have lots of txs and a price on the Etherscan page. Avoid vaults of rebasing or deflationary tokens too.</div>
+                            <div class="token_not_verified_txt">This token is unverified. <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing, because scammers can create fake tokens with any name. A real token will have lots of txs and a price on Etherscan. Avoid rebasing or deflationary tokens too.</div>
                             <br>
-                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH. 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH in wallet.<!-- 1 vShare = <span class="lending_keth_price green">...</span> ETH.--></div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
@@ -769,14 +769,15 @@
                             </div>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> vShare (vault <span class="currVault">...</span>).</div>
-                            <br>
-                            <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH at <span class="curr_tEnd green">...</span>, then you get <span class="curr_apy green">...%</span> APY in ETH (if people use this vault to borrow ETH from you).
-                                <br><br>If <span class="currTokenShort">...</span> tank below <span class="currPriceEnd">...</span> ETH at expiration, you receive <span class="currTokenShort">...</span> at the price, which can be a loss.</div>
-                            <br>
-                            <div class="gray">Don't simply pick the vault with the highest APY%, because if the APY% is too high, no one will lock <span class="currTokenShort">...</span> in the vault to borrow ETH at that APY% from you, and then you won't get the APY%.</div>
-                            <br>
-                            <div class="gray">Although the price of vShare will grow over time, consider leaving the vault if you think <span class="currTokenShort">...</span> will trade below <span class="currPriceEnd">...</span> ETH at expiration, because in that case vShare is over-priced.</div>
+                            <!--  -->
+                            <!-- <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> vShare (vault <span class="currVault">...</span>).</div>
+                            <br> -->
+                            <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH at <span class="curr_tEnd green">...</span>, you get <span class="curr_apy green">...%</span> APY in ETH (if people use this vault to borrow ETH from you).
+                                <br><br>If <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH at expiry, you receive <span class="currTokenShort">...</span> at the price instead.</div>
+                            <!-- <br>
+                            <div class="gray">Don't simply pick the vault with the highest APY%, because if the APY% is too high, no one will lock <span class="currTokenShort">...</span> in the vault to borrow ETH at that APY% from you, and then you won't get the APY%.</div> -->
+                            <!-- <br>
+                            <div class="gray">Although the price of vShare will grow over time, consider leaving the vault if you think <span class="currTokenShort">...</span> will trade below <span class="currPriceEnd">...</span> ETH at expiry, because in that case vShare is over-priced.</div> -->
                         </div>
                         <div class="panel monospace" task="lending_unlock_eth">
                             <div class="title title_main">Unlock ETH from Vault</div>
@@ -812,7 +813,7 @@
                             <br>
                             <div><span class="darkred">Remember to payback ETH before the deadline</span>, or lenders will take your <span class="currTokenShort">...</span> collateral.</div>
                             <br>
-                            <div>However, You can choose to default (don't payback) if <span class="currTokenShort">...</span> tanks. Therefore you get a put option as well, which is nice.</div>
+                            <div>However, You can choose to default (don't payback) if <span class="currTokenShort">...</span> tanks. Therefore you get a put option as well.</div>
                         </div>
                         <div class="panel monospace" task="lending_unlock_liquid">
                             <div class="title title_main">Payback ETH to unlock <span class="currTokenShort">...</span></div>
@@ -830,13 +831,13 @@
                             <div>It takes <span class="lending_liquid_floor_price green">...</span> ETH to unlock 1 <span class="currTokenShort">...</span>.</div>
                         </div>
                         <div class="panel monospace" task="lending_exitShare">
-                            <div class="title title_main">Exit Vault after Expiration</div>
+                            <div class="title title_main">Exit Vault after expiry</div>
                             <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div>
                             <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
                             <br><button style="flex: 1;" class="button">Exit vault</button>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You can only call this after vault expiration: <span class="curr_tEnd green">...</span>.</div>
+                            <div>You can only call this after vault expiry: <span class="curr_tEnd green">...</span>.</div>
                         </div>
                         <div class="panel monospace" task="create_vault">
                             <div class="title title_main">Create Lending Vault</div>
@@ -848,12 +849,12 @@
                             </div>
                             <br>
                             <div class="flexbox">
-                                <span style="flex:1.3">Expiration price (in ETH):</span>
+                                <span style="flex:1.3">expiry price (in ETH):</span>
                                 <input style="flex: 2" placeholder="must > 0" class="input create_price_eth">
                             </div>
                             <br>
                             <div class="flexbox">
-                                Expiration: in
+                                expiry: in
                                 <input style="width: 12%" placeholder="xx" class="input create_tEnd_days">days
                                 <input style="width: 12%" placeholder="xx" class="input create_tEnd_hours">hours
                             </div>
@@ -866,7 +867,7 @@
                             <button style="flex: 1;" class="button">Create Vault (will ask you to confirm)</button>
                             <div class="panel_log"></div>
                             <br>
-                            <div>Enter reasonable expiration price + date + APY%, so that both lenders and borrowers will use your vault.</div>
+                            <div>Enter reasonable expiry price + date + APY%, so that both lenders and borrowers will use your vault.</div>
                         </div>
                         <div class="panel monospace token_list_panel" style="display: none;">
                             <div class="title title_main">Token List</div>
