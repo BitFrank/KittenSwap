@@ -599,36 +599,6 @@
             border: 1px solid #0c0;
         }
 
-        /* .vault_first_line {
-            border-top: 1px solid #222;
-        } */
-
-        .vault_select {
-            display: flex;
-            align-items: center;
-
-            padding: 1em 0em 1em 0.5em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0);
-            border-top: 1px solid rgba(0, 0, 0, 0);
-            border-left: 1px solid rgba(0, 0, 0, 0);
-            border-right: 1px solid rgba(0, 0, 0, 0);
-        }
-
-        .vault_select .token_icon_wrap {
-            margin-right: 1em;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-        }
-
-        .vault_select:hover,
-        .vault_select.selected {
-            cursor: pointer;
-            border: 1px solid #0c0;
-            border-radius: 1em;
-        }
-
         .force_gray,
         .force_gray .green,
         .force_gray .darkred {
@@ -665,6 +635,34 @@
             max-width: 100%;
             max-height: 100%;
         }
+
+        #vault_table td {
+            border-top: 0px;
+        }
+        .token_icon_wrap_x {
+            display: flex;
+            align-items: center;
+        }
+
+        .vault_select .token_icon_wrap {
+            margin-right: 0.5em;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .vault_select img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .vault_select:hover,
+        .vault_select.selected {
+            cursor: pointer;
+            background: #050;
+            color: #eee;
+        }
     </style>
     <style>
         @media screen and (min-width: 1200px) {
@@ -698,9 +696,24 @@
                     <div id="nav">
                         <div class="panel monospace panel_vault">
                             <!-- <div class="title title_main">Select Vault</div> -->
-                            <div class="vault_list_info _loading">loading vaults...</div>
-                            <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
-                            <div class="vault_list"></div>
+                            <div class="vault_list_info_wrap">
+                                <div class="vault_list_info _loading">loading vaults...</div>
+                                <div class="vault_list_info _done">Found <span class="_vaultCount"></span> vaults. Click vault to select it.</div>
+                                <div id="vault_table_loading"><br>loading vault details... (pls wait)</div>
+                            </div>
+                            <table id="vault_table" style="width:100%; display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>asset</th>
+                                        <th>borrow<br>price</th>
+                                        <th>apy%</th>
+                                        <th>expiration</th>
+                                        <th>free<br>ETH</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- <div class="panel monospace wait_for_load" task="">
                             <div class="title title_main">Deposit ETH to Earn Yields</div>
@@ -726,14 +739,14 @@
                             <br>
                             <div>You have <span class="user_wallet_keth green">...</span> vShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> in it (before expiration).</div>
                             <div style="height: 2.5em;"> </div>
-                            Lender: <a go="lending_lock_eth">Deposit ETH</a><a go="lending_unlock_eth">Redeem ETH</a><a go="lending_exitShare">Exit Vault</a>
+                            Lender: <a go="lending_lock_eth">Lock ETH</a><a go="lending_unlock_eth">Unlock ETH</a><a go="lending_exitShare">Exit Vault</a>
                             <div style="height: 2.5em;"> </div>
                             Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create New Vault</a>
                         </div>                        
                         <div class="panel monospace" task="lending_lock_eth">
-                            <div class="title title_main">Deposit ETH to Earn Yields</div>
+                            <div class="title title_main">Lock ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div>
                             <div>Because scammers can create fake tokens with the same name as well-known tokens, <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing. A real token will have lots of txs and a price on the Etherscan page. Avoid vaults of rebasing or deflationary tokens too.</div>
                             <br>
@@ -742,7 +755,7 @@
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">ETH amt:</span>
                                 <input style="margin-right: 1em;" placeholder="0" class="input">
-                                <button style="flex: 1;" class="button">Deposit ETH</button>
+                                <button style="flex: 1;" class="button">Lock ETH</button>
                             </div>
                             <div class="panel_log"></div>
                             <br>
@@ -756,7 +769,7 @@
                             <div class="gray">Although the price of vShare will grow over time, consider leaving the vault if you think <span class="currTokenShort">...</span> will trade below <span class="currPriceEnd">...</span> ETH at expiration, because in that case vShare is over-priced.</div>
                         </div>
                         <div class="panel monospace" task="lending_unlock_eth">
-                            <div class="title title_main">Redeem ETH from Vault</div>
+                            <div class="title title_main">Unlock ETH from Vault</div>
                             <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to ETH</div>
                             <div>You have <span class="user_wallet_keth green amt_hover">...</span> vShare (vault <span class="currVault">...</span>). 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
                             <br>
