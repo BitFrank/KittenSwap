@@ -648,6 +648,8 @@
             display: flex;
             align-items: center;
             justify-content: start;
+            margin-left: 0.5em;
+            margin-right: -0.5em;
         }
 
         .vault_select {
@@ -672,6 +674,10 @@
             cursor: pointer;
             background: #050;
             color: #eee;
+        }
+
+        .panel_left {
+            width: 40em !important;
         }
     </style>
     <style>
@@ -704,7 +710,7 @@
                 <!-- <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div> -->
                 <div style="display: flex;">
                     <div id="nav">
-                        <div class="panel monospace panel_vault">
+                        <div class="panel monospace panel_vault panel_left">
                             <!-- <div class="title title_main">Select Vault</div> -->
                             <div class="vault_list_info_wrap">
                                 <div class="vault_list_info _loading">loading vaults...</div>
@@ -715,11 +721,13 @@
                                 <thead>
                                     <tr>
                                         <th>token</th>
-                                        <th>borrow<br>price ETH</th>
+                                        <th>price<br>ETH</th>
+                                        <th>borrow<br>priceETH</th>
                                         <th>apy%</th>
-                                        <th>duration<br>days</th>
+                                        <th>expiry<br>days</th>
                                         <th>free<br>ETH</th>
                                         <th>your<br>asset</th>
+                                        <th>imp.<br>vol.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -737,11 +745,9 @@
                             <div class="title title_small">Payback ETH to unlock token</div>
                             <div>Please click a vault (after they are loaded) to show all lending functions.</div>
                         </div> -->
-                        <div class="panel monospace">
+                        <div class="panel monospace panel_left">
                             <div class="title darkred">WARNING</div>
-                            The lending <a class="lending_contract green" href='https://etherscan.io/address/0xcac6f6711206215d9761f7b82936f2083964dff5' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs.
-                            <br><br>
-                            <div>Use at your own risk, and don't trade more than you are willing to lose.</div>
+                            The lending <a class="lending_contract green" href='https://etherscan.io/address/0xcac6f6711206215d9761f7b82936f2083964dff5' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs. Use at your own risk.
                         </div>
                     </div>
                     <div id="info" style="display: none; margin-left: 1em; min-height: 60em;">
@@ -852,26 +858,24 @@
                                 <input style="flex: 2" placeholder="0x????????????????????????????????????????" class="input create_token_addr">
                             </div>
                             <br>
-                            <div class="flexbox">
-                                <span style="flex:1.3">expiry price (in ETH):</span>
-                                <input style="flex: 2" placeholder="must > 0" class="input create_price_eth">
-                            </div>
+                            <button style="flex: 1;" class="button" task="suggest_expiry_price">Auto. suggest expiry price</button>
                             <br>
                             <div class="flexbox">
-                                expiry: in
-                                <input style="width: 12%" placeholder="xx" class="input create_tEnd_days">days
-                                <input style="width: 12%" placeholder="xx" class="input create_tEnd_hours">hours
+                                <span style="">expiry price<br>(in ETH):</span>
+                                <input style="width: 28%" placeholder="must > 0" class="input create_price_eth">
+                                &nbsp;in&nbsp;
+                                <input style="width: 12%" placeholder="xx" class="input create_tEnd_days" value="31">days
                             </div>
                             <br>
                             <div class="flexbox">
                                 <span style="flex:1.3">APY%<br>(two decimals):</span>
-                                <input style="flex: 2" placeholder="xxx.xx" class="input create_apy">
+                                <input style="flex: 2" placeholder="xxx.xx" class="input create_apy" value="50">
                             </div>
                             <br>
                             <button style="flex: 1;" class="button">Create Vault (will ask you to confirm)</button>
                             <div class="panel_log"></div>
                             <br>
-                            <div>Enter reasonable expiry price + date + APY%, so that both lenders and borrowers will use your vault.</div>
+                            <div>Enter reasonable expiry price + time + APY%, so that both lenders and borrowers will use your vault.</div>
                         </div>
                         <div class="panel monospace token_list_panel" style="display: none;">
                             <div class="title title_main">Token List</div>
