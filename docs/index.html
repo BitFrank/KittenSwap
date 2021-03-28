@@ -555,9 +555,13 @@
     </style>
     <style>
         body {
-            /* background: linear-gradient(180deg,#181818 ,#000 100%); */
-            background: #000;
-            background-attachment: fixed;
+            background:
+                radial-gradient(black 15%, transparent 16%) 0 0,
+                radial-gradient(black 15%, transparent 16%) 8px 8px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 0 0.7px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 8px 8.7px;
+            background-color: #151515;
+            background-size: 16px 16px;
 
             min-height: 100vh;
             width: 100%;
