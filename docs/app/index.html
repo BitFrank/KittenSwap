@@ -436,14 +436,23 @@
     </style>
     <style>
         body {
-            background: #000000 url(../img/bg.png) no-repeat;
-            background-position: right 5%;
-            background-attachment: fixed;
+            background:
+                radial-gradient(black 15%, transparent 16%) 0 0,
+                radial-gradient(black 15%, transparent 16%) 8px 8px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 0 0.7px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 8px 8.7px;
+            background-color: #151515;
+            background-size: 16px 16px;
 
-            min-height: 100%;
+            min-height: 100vh;
             width: 100%;
-            z-index: 1;
         }
+
+        #wrap {
+            background: url(../img/bg.png) no-repeat;
+            background-attachment: fixed;
+            background-position: right center;
+        }        
 
         .panel {
             background: rgba(11, 11, 11, 0.9);
@@ -594,7 +603,7 @@
                     <input placeholder="price (ETH)" class="input token_price_low" style="width: 100px">
                     &nbsp;to&nbsp;
                     <input placeholder="price (ETH)" class="input token_price_high" style="width: 100px">
-                    <div class="gray" style="margin-top: 1em;">Remember to check all prices and whether you are buying or selling.</div>
+                    <div class="gray" style="margin-top: 1em;">Remember to check prices, and whether you are buying or selling.</div>
                 </div>
 
                 <div class="panel order_panel order_modify">
