@@ -534,8 +534,16 @@
     <style>
         body {
             /* background: linear-gradient(180deg,#181818 ,#000 100%); */
-            background: #000;
-            background-attachment: fixed;
+            /* background: #000; */
+            /* background-attachment: fixed; */
+
+            background:
+                radial-gradient(black 15%, transparent 16%) 0 0,
+                radial-gradient(black 15%, transparent 16%) 8px 8px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 0 0.7px,
+                radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 8px 8.7px;
+            background-color: #151515;
+            background-size: 16px 16px;            
 
             min-height: 100vh;
             width: 100%;
@@ -764,8 +772,7 @@
                     <div id="info" style="display: none; margin-left: 1em; min-height: 60em;">
                         <div class="panel monospace panel_select" style="display: none;">
                             <!-- <div class="title title_main">Vault <span class="currVault">...</span> Status</div> -->
-                            <div>Vault <span class="currVault">...</span> has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
-                            <br>
+                            <div>This vault has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <div>You have <span class="user_wallet_keth green">...</span> vaultShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> here.</div>
                             <div style="height: 2.5em;"> </div>
                             Lender: <a go="lending_lock_eth">Lock ETH</a><a go="lending_unlock_eth">Unlock ETH</a><a go="lending_exitShare">Exit Vault</a>
