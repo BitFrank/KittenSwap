@@ -730,7 +730,7 @@
                 <!-- <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div> -->
                 <div style="display: flex;">
                     <div id="nav">
-                        <div class="panel monospace panel_vault panel_left">
+                        <div class="panel panel_vault panel_left">
                             <!-- <div class="title title_main">Select Vault</div> -->
                             <div class="vault_list_info_wrap">
                                 <div class="vault_list_info _loading">loading vaults...</div>
@@ -755,23 +755,23 @@
                             </table>
                             <div class="vault_list"></div>
                         </div>
-                        <!-- <div class="panel monospace wait_for_load" task="">
+                        <!-- <div class="panel wait_for_load" task="">
                             <div class="title title_main">Deposit ETH to Earn Yields</div>
                             <div class="title title_small">Swap ETH to vaultShare</div>
                             <div>Please click a vault (after they are loaded) to show all lending functions.</div>
                         </div>
-                        <div class="panel monospace wait_for_load" task="">
+                        <div class="panel wait_for_load" task="">
                             <div class="title title_main">Lock token to Borrow ETH</div>
                             <div class="title title_small">Payback ETH to unlock token</div>
                             <div>Please click a vault (after they are loaded) to show all lending functions.</div>
                         </div> -->
-                        <div class="panel monospace panel_left">
+                        <div class="panel panel_left">
                             <div class="title darkred">WARNING</div>
                             The lending <a class="lending_contract green" href='https://etherscan.io/address/0xcac6f6711206215d9761f7b82936f2083964dff5' target="_blank">contract</a> is completely new and not a fork, and thus unaudited. There may be undiscovered bugs. Use at your own risk.
                         </div>
                     </div>
                     <div id="info" style="display: none; margin-left: 1em; min-height: 60em;">
-                        <div class="panel monospace panel_select" style="display: none;">
+                        <div class="panel panel_select" style="display: none;">
                             <!-- <div class="title title_main">Vault <span class="currVault">...</span> Status</div> -->
                             <div>This vault has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <div>You have <span class="user_wallet_keth green">...</span> vaultShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> here.</div>
@@ -782,7 +782,7 @@
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create New Vault</a>
                         </div>
-                        <div class="panel monospace" task="lending_lock_eth">
+                        <div class="panel" task="lending_lock_eth">
                             <div class="title title_main">Lock ETH to Earn Yields</div>
                             <!-- <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div> -->
                             <div class="token_not_verified_txt">This token is unverified. <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing, because scammers can create fake tokens with any name. A real token will have lots of txs and a price on Etherscan. Avoid rebasing or deflationary tokens too.<br><br></div>
@@ -810,7 +810,7 @@
                             <!-- <br>
                             <div class="gray">Although the price of vShare will grow over time, consider leaving the vault if you think <span class="currTokenShort">...</span> will trade below <span class="currPriceEnd">...</span> ETH at expiry, because in that case vShare is over-priced.</div> -->
                         </div>
-                        <div class="panel monospace" task="lending_unlock_eth">
+                        <div class="panel" task="lending_unlock_eth">
                             <div class="title title_main">Unlock ETH from Vault</div>
                             <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to ETH</div> -->
                             <div>You have <span class="user_wallet_keth green amt_hover">...</span> vaultShare. 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
@@ -824,7 +824,7 @@
                             <br>
                             <div>You will swap <span class="in_amt">0</span> vShare to <span class="out_amt">0</span> ETH. Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
                         </div>
-                        <div class="panel monospace" task="lending_lock_liquid">
+                        <div class="panel" task="lending_lock_liquid">
                             <div class="title title_main">Lock <span class="currTokenShort">...</span> to Borrow ETH</div>
                             <div>You have <span class="user_wallet_liquid green amt_hover">...</span> <span class="currTokenShort">...</span> in wallet.</div>
                             <br>
@@ -844,7 +844,7 @@
                             <br>
                             <div>However, You can choose to default (don't payback) if <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH.</div>
                         </div>
-                        <div class="panel monospace" task="lending_unlock_liquid">
+                        <div class="panel" task="lending_unlock_liquid">
                             <div class="title title_main">Payback ETH to unlock <span class="currTokenShort">...</span></div>
                             <div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
@@ -859,7 +859,7 @@
                             <br>
                             <div>It takes <span class="lending_liquid_floor_price green">...</span> ETH to unlock 1 <span class="currTokenShort">...</span>.</div>
                         </div>
-                        <div class="panel monospace" task="lending_exitShare">
+                        <div class="panel" task="lending_exitShare">
                             <div class="title title_main">Exit Vault after expiry</div>
                             <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div> -->
                             <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
@@ -868,7 +868,7 @@
                             <br>
                             <div>You can only call this after vault expiry: <span class="curr_tEnd curr_tEnd_long green">...</span>.</div>
                         </div>
-                        <div class="panel monospace" task="create_vault">
+                        <div class="panel" task="create_vault">
                             <div class="title title_main">Create Lending Vault</div>
                             You can create lending vault for most ERC20 tokens (avoid rebasing or deflationary tokens).
                             <br><br>
@@ -896,7 +896,7 @@
                             <br>
                             <div>Enter reasonable APY% & expiry price, so that both lenders and borrowers will use your vault.</div>
                         </div>
-                        <div class="panel monospace token_list_panel" style="display: none;">
+                        <div class="panel token_list_panel" style="display: none;">
                             <div class="title title_main">Token List</div>
                             <div class="token_list">
                             </div>
