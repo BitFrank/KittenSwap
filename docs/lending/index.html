@@ -543,7 +543,7 @@
                 radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 0 0.7px,
                 radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 15%) 8px 8.7px;
             background-color: #151515;
-            background-size: 16px 16px;            
+            background-size: 16px 16px;
 
             min-height: 100vh;
             width: 100%;
@@ -693,10 +693,27 @@
         }
 
         .token_icon_small {
-            max-width:1em; 
-            max-height:1em;       
+            max-width: 1em;
+            max-height: 1em;
             position: relative;
-            top: 2px;      
+            top: 2px;
+        }
+
+        #net_select button {
+            background: inherit;
+            color: white;
+            border: 1px solid #444;
+            display: inline-block;
+            padding: 0.5em;
+            height: auto;
+        }
+
+        #net_select button:hover {
+            border: 1px solid #0c0;
+        }
+
+        #net_select button.selected {
+            background: #070;
         }
     </style>
     <style>
@@ -726,6 +743,7 @@
         <div id="main-wrap" style="position: relative;">
             <div id="main">
                 <div id="main_title" class="title" style="font-size: 200%; text-align: center; letter-spacing: 0.2em; margin: 0.5em 0 0.5em 0;">KittenSwap Lending</div>
+                <div id="net_select" style="display: flex; width: 24em; margin-bottom: 1em;"><button class="button" net="ETH">ETH mainnet</button><button class="button" net="BSC">BSC mainnet</button></div>
                 <div id="log" class="monospace" style="display: inline-block; margin-bottom: 4em;"></div>
                 <!-- <div style="font-size: 150%; font-weight: bold; margin-bottom: 2em;" class="darkred">The mainnet contract is deployed.<br>Please only test with TINY AMTS OF ETH & TOKEN first, to confirm it works.</div> -->
                 <div style="display: flex;">
@@ -741,8 +759,8 @@
                                 <thead>
                                     <tr>
                                         <th>token</th>
-                                        <th>price<br>ETH</th>
-                                        <th>borrow<br>priceETH</th>
+                                        <th>price<br><span class="netToken"></span></th>
+                                        <th>borrow<br>price<span class="netToken"></span></th>
                                         <th>apy%</th>
                                         <th>expiry<br>days</th>
                                         <th>vault<br>asset</th>
@@ -773,36 +791,36 @@
                     <div id="info" style="display: none; margin-left: 1em; min-height: 60em;">
                         <div class="panel panel_select" style="display: none;">
                             <!-- <div class="title title_main">Vault <span class="currVault">...</span> Status</div> -->
-                            <div>This vault has <span class="lending_free_eth green">...</span> free ETH, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
+                            <div>This vault has <span class="lending_free_eth green">...</span> free <span class="netToken"></span>, <span class="lending_locked_liq green">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <div>You have <span class="user_wallet_keth green">...</span> vaultShare, <span class="user_locked_liquid green">...</span> locked <span class="currTokenShort">...</span> here.</div>
                             <div style="height: 2.5em;"> </div>
-                            Lender: <a go="lending_lock_eth">Lock ETH</a><a go="lending_unlock_eth">Unlock ETH</a><a go="lending_exitShare">Exit Vault</a>
+                            Lender: <a go="lending_lock_eth">Lock <span class="netToken"></span></a><a go="lending_unlock_eth">Unlock <span class="netToken"></span></a><a go="lending_exitShare">Exit Vault</a>
                             <div style="height: 2.5em;"> </div>
                             Borrower: <a go="lending_lock_liquid">Lock <span class="currTokenShort">...</span></a><a go="lending_unlock_liquid">Unlock <span class="currTokenShort">...</span></a>
                             <div style="height: 2.5em;"> </div>
                             Everyone: <a go="create_vault">Create New Vault</a>
                         </div>
                         <div class="panel" task="lending_lock_eth">
-                            <div class="title title_main">Lock ETH to Earn Yields</div>
+                            <div class="title title_main">Lock <span class="netToken"></span> to Earn Yields</div>
                             <!-- <div class="title title_small">Swap ETH to vaultShare of vault <span class="currVault">...</span></div> -->
                             <div class="token_not_verified_txt">This token is unverified. <a class="a_token_check darkred" target="_blank">ALWAYS click here to check token</a> before depositing, because scammers can create fake tokens with any name. A real token will have lots of txs and a price on Etherscan. Avoid rebasing or deflationary tokens too.<br><br></div>
-                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> ETH in wallet.
+                            <div>You have <span class="user_wallet_eth green amt_hover">...</span> <span class="netToken"></span> in wallet.
                                 <!-- 1 vShare = <span class="lending_keth_price green">...</span> ETH.-->
                             </div>
                             <br>
                             <div style="" class="flexbox">
-                                <span style="margin-right: 1em;">ETH amt:</span>
+                                <span style="margin-right: 1em;"><span class="netToken"></span> amt:</span>
                                 <input style="margin-right: 1em;" placeholder="0" class="input">
-                                <button style="flex: 1;" class="button">Lock ETH</button>
+                                <button style="flex: 1;" class="button">Lock <span class="netToken"></span></button>
                             </div>
                             <div class="panel_log"></div>
                             <br>
                             <!--  -->
                             <!-- <div>You will swap <span class="in_amt">0</span> ETH to <span class="out_amt">0</span> vShare (vault <span class="currVault">...</span>).</div>
                             <br> -->
-                            <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> ETH after <span class="curr_tEnd green">...</span>, you get <span class="curr_apy green">...%</span> APY in ETH (if borrowers use this vault).
-                                <br><br>If <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH at expiry, you receive <span class="currTokenShort">...</span> at the price instead.
-                                <br><br>Moreover, You can unlock your ETH if there are no borrowers, or if there is free ETH in vault.
+                            <div>If <span class="currTokenShort green">...</span> is above <span class="currPriceEnd green">...</span> <span class="netToken"></span> after <span class="curr_tEnd green">...</span>, you get <span class="curr_apy green">...%</span> APY in <span class="netToken"></span> (if borrowers use this vault).
+                                <br><br>If <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> <span class="netToken"></span> at expiry, you receive <span class="currTokenShort">...</span> at the price instead.
+                                <br><br>Moreover, You can unlock your <span class="netToken"></span> if there are no borrowers, or if there is free <span class="netToken"></span> in vault.
                             </div>
 
                             <!-- <br>
@@ -811,9 +829,9 @@
                             <div class="gray">Although the price of vShare will grow over time, consider leaving the vault if you think <span class="currTokenShort">...</span> will trade below <span class="currPriceEnd">...</span> ETH at expiry, because in that case vShare is over-priced.</div> -->
                         </div>
                         <div class="panel" task="lending_unlock_eth">
-                            <div class="title title_main">Unlock ETH from Vault</div>
+                            <div class="title title_main">Unlock <span class="netToken"></span> from Vault</div>
                             <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to ETH</div> -->
-                            <div>You have <span class="user_wallet_keth green amt_hover">...</span> vaultShare. 1 vShare = <span class="lending_keth_price green">...</span> ETH.</div>
+                            <div>You have <span class="user_wallet_keth green amt_hover">...</span> vaultShare. 1 vShare = <span class="lending_keth_price green">...</span> <span class="netToken"></span>.</div>
                             <br>
                             <div style="" class="flexbox">
                                 <span style="margin-right: 1em;">vShare amt:</span>
@@ -822,10 +840,10 @@
                             </div>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You will swap <span class="in_amt">0</span> vShare to <span class="out_amt">0</span> ETH. Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
+                            <div>You will swap <span class="in_amt">0</span> vShare to <span class="out_amt">0</span> <span class="netToken"></span>. Vault has <span class="lending_free_eth green">...</span> free <span class="netToken"></span> at this moment.</div>
                         </div>
                         <div class="panel" task="lending_lock_liquid">
-                            <div class="title title_main">Lock <span class="currTokenShort">...</span> to Borrow ETH</div>
+                            <div class="title title_main">Lock <span class="currTokenShort">...</span> to Borrow <span class="netToken"></span></div>
                             <div>You have <span class="user_wallet_liquid green amt_hover">...</span> <span class="currTokenShort">...</span> in wallet.</div>
                             <br>
                             <div style="" class="flexbox">
@@ -835,42 +853,42 @@
                             </div>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You will lock <span class="in_amt">0</span> <span class="currTokenShort">...</span> to borrow <span class="out_amt">0</span> ETH. Vault has <span class="lending_free_eth green">...</span> free ETH at this moment.</div>
-                            <div><br>1 <span class="currTokenShort">...</span> can borrow <span class="lending_price_after_fee green">...</span> ETH (after <span class="devFeePercent">...</span>% dev fee).</div>
+                            <div>You will lock <span class="in_amt">0</span> <span class="currTokenShort">...</span> to borrow <span class="out_amt">0</span> <span class="netToken"></span>. Vault has <span class="lending_free_eth green">...</span> free <span class="netToken"></span> at this moment.</div>
+                            <div><br>1 <span class="currTokenShort">...</span> can borrow <span class="lending_price_after_fee green">...</span> <span class="netToken"></span> (after <span class="devFeePercent">...</span>% dev fee).</div>
                             <br>
-                            <div>You will be paying <span class="curr_apy_daily green">...%</span> interest every day (<span class="curr_apy green">...%</span> APY) in ETH. You can payback the loan at any moment before the <span class="curr_tEnd curr_tEnd_long green">...</span> deadline.</div>
+                            <div>You will be paying <span class="curr_apy_daily green">...%</span> interest every day (<span class="curr_apy green">...%</span> APY) in <span class="netToken"></span>. You can payback the loan at any moment before the <span class="curr_tEnd curr_tEnd_long green">...</span> deadline.</div>
                             <br>
-                            <div><span class="darkred">Remember to payback ETH before the deadline</span>, or lenders will take your <span class="currTokenShort">...</span> collateral.</div>
+                            <div><span class="darkred">Remember to payback <span class="netToken"></span> before the deadline</span>, or lenders will take your <span class="currTokenShort">...</span> collateral.</div>
                             <br>
-                            <div>However, You can choose to default (don't payback) if <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> ETH.</div>
+                            <div>However, You can choose to default (don't payback) if <span class="currTokenShort">...</span> tanks below <span class="currPriceEnd">...</span> <span class="netToken"></span>.</div>
                         </div>
                         <div class="panel" task="lending_unlock_liquid">
-                            <div class="title title_main">Payback ETH to unlock <span class="currTokenShort">...</span></div>
+                            <div class="title title_main">Payback <span class="netToken"></span> to unlock <span class="currTokenShort">...</span></div>
                             <div>You have <span class="user_locked_liquid green amt_hover">...</span> locked <span class="currTokenShort">...</span>.</div>
                             <br>
                             <div style="" class="flexbox">
-                                <span style="margin-right: 1em;">ETH amt:</span>
+                                <span style="margin-right: 1em;"><span class="netToken"></span> amt:</span>
                                 <input style="margin-right: 1em;" placeholder="0" class="input">
-                                <button style="flex: 1;" class="button">Payback ETH</button>
+                                <button style="flex: 1;" class="button">Payback <span class="netToken"></span></button>
                             </div>
                             <div class="panel_log"></div>
                             <br>
-                            <div>You will payback <span class="in_amt">0</span> ETH to unlock <span class="out_amt">0</span> <span class="currTokenShort">...</span>. It's good to overpay a bit. Unused ETH will be returned to you.</div>
+                            <div>You will payback <span class="in_amt">0</span> <span class="netToken"></span> to unlock <span class="out_amt">0</span> <span class="currTokenShort">...</span>. It's good to overpay a bit. Unused <span class="netToken"></span> will be returned to you.</div>
                             <br>
-                            <div>It takes <span class="lending_liquid_floor_price green">...</span> ETH to unlock 1 <span class="currTokenShort">...</span>.</div>
+                            <div>It takes <span class="lending_liquid_floor_price green">...</span> <span class="netToken"></span> to unlock 1 <span class="currTokenShort">...</span>.</div>
                         </div>
                         <div class="panel" task="lending_exitShare">
                             <div class="title title_main">Exit Vault after expiry</div>
                             <!-- <div class="title title_small">Swap vaultShare of vault <span class="currVault">...</span> to assets</div> -->
-                            <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> ETH + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
+                            <div>You will swap your <span class="user_wallet_keth green amt_hover">...</span> vShare to <span class="lending_exit_eth">...</span> <span class="netToken"></span> + <span class="lending_exit_token">...</span> <span class="currTokenShort">...</span>.</div>
                             <br><button style="flex: 1;" class="button">Exit vault</button>
                             <div class="panel_log"></div>
                             <br>
                             <div>You can only call this after vault expiry: <span class="curr_tEnd curr_tEnd_long green">...</span>.</div>
                         </div>
                         <div class="panel" task="create_vault">
-                            <div class="title title_main">Create Lending Vault</div>
-                            You can create lending vault for most ERC20 tokens (avoid rebasing or deflationary tokens).
+                            <div class="title title_main">Create <span class="netType"></span> Lending Vault</div>
+                            You can create lending vault for most <span class="netType"></span> tokens (avoid rebasing or deflationary tokens).
                             <br><br>
                             <div class="flexbox">
                                 <span style="flex:1.3">Token addr:</span>
@@ -880,7 +898,7 @@
                             <button style="flex: 1;" class="button" task="suggest_expiry_price">Auto. suggest expiry price</button>
                             <br>
                             <div class="flexbox">
-                                <span style="">expiry price<br>(in ETH):</span>
+                                <span style="">expiry price<br>(in <span class="netToken"></span>):</span>
                                 <input style="width: 28%" placeholder="must > 0" class="input create_price_eth">
                                 &nbsp;in&nbsp;
                                 <input style="width: 12%" placeholder="xx" class="input create_tEnd_days" value="31">days
@@ -897,7 +915,7 @@
                             <div>Enter reasonable APY% & expiry price, so that both lenders and borrowers will use your vault.</div>
                         </div>
                         <div class="panel token_list_panel" style="display: none;">
-                            <div class="title title_main">Token List</div>
+                            <div class="title title_main"><span class="netType"></span> Token List</div>
                             <div class="token_list">
                             </div>
                         </div>
@@ -929,7 +947,7 @@
     <script type="text/javascript" src="js/ethers-5.0.umd.min.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
     <script>
-        var TOKEN_VERIFY =
+        var TOKEN_VERIFY_ETH =
             `KIF 0x177BA0cac51bFC7eA24BAd39d81dcEFd59d74fAa
 DEX 0x3516415161C478DF10ADBb8bb884Cc83FbD5F11a
 LIQUID 0xc618d56b6d606e59c6b87af724ab5a91eb40d1cb
@@ -953,6 +971,10 @@ ROOK 0xfA5047c9c78B8877af97BDcb85Db743fD7313d4a
 SIREN 0xD23Ac27148aF6A2f339BD82D0e3CFF380b5093de
 SuperFarm 0xe53EC727dbDEB9E2d5456c3be40cFF031AB40A55
 UBT 0x8400D94A5cb0fa0D041a3788e395285d61c9ee5e`
+
+        var TOKEN_VERIFY_BSC =
+            `ETH 0x2170Ed0880ac9A755fd29B2688956BD959F933F8
+KIF 0x9e0846677eA91Ea5308D3F525C09E782ef17dA21`
     </script>
     <script type="text/javascript" src="index.js"></script>
     <script>
